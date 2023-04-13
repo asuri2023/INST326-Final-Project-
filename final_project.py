@@ -30,7 +30,7 @@ class Apartment:
         user_name = input("Please enter your full name:")
         ideal_location = input("Would North campus or South Campus be ideal for you: ")
         if ideal_location == self.location:
-            return()
+            return("apple")
             
         
    
