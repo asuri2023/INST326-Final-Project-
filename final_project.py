@@ -1,6 +1,6 @@
 import pandas as pd
-df = pd.read_excel(r"/Users/shishirporeddy/Desktop/INST326/College Park Apartment Database_Version1.xlsx")
-print(df) 
+df = pd.read_csv(r"/Users/shishirporeddy/Documents/GitHub/INST326-Final-Project-/College Park Apartment Database_Version1 - Sheet1.csv")
+#print(df) 
 
 class Apartment:
     
