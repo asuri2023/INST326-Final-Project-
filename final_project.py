@@ -1,7 +1,10 @@
 import pandas as pd
-df = pd.read_excel(r"/Users/shishirporeddy/Desktop/INST326/College Park Apartment Database_Version1.xlsx")
-print(df) 
-
+import requests
+#df = pd.read_excel(r"/Users/shishirporeddy/Desktop/INST326/College Park Apartment Database_Version1.xlsx#")
+#print(df)
+url="https://docs.google.com/spreadsheets/d/1F8AL1BA8NFl0uHObNFIyygi7sBF6MP3TBv1jbXa7OWg/edit?usp=sharing" 
+s=requests.get(url).content 
+c=pd.read_csv(s)
 class Apartment:
     
     def __init__(self, min_budget, num_rooms, apt_names, location, amenities, floorplan):
@@ -10,7 +13,7 @@ class Apartment:
         self.num_rooms = num_rooms
         self.apt_names = ["Terrapin Row","University View","The Varsity"]
         self.location = location 
-        self.amenities = amenities
+        self.amenities =pd.read_csv("https://docs.google.com/spreadsheets/d/1F8AL1BA8NFl0uHObNFIyygi7sBF6MP3TBv1jbXa7OWg/edit?usp=sharing")
         self.floorplan = floorplan
         
 
@@ -27,20 +30,31 @@ class Apartment:
             return f'You meet the minimum budget of The Varsity: {self.min_budget["The Varsity"]}'
 
     def userInput(self):
+       
+
         apt_location = ["North","South"]
         #apt_some_location = ["Terrapin Row is North","University View is South","The Varsity is South"]
         
         print("Please answer the following questions to help provide you with your ideal apartment")
         user_name = input("Please enter your full name:")
         user_location = input("Which part of UMD campus would be ideal for you. \
-                               Type North or South: ")
+                               Type North or South: ") 
         
-        correct_user_location = [x for x in apt_location if user_location in x]  
+        correct_user_location = [x for x in apt_location if user_location in x]   
         #This list comprehension checks if the user properly wrote "North" or 
         # "South". 
             
-        apt_some_location = ["Terrapin Row is South","University View is North","The Varsity is North"]
-    
+        apt_some_location = ["Terrapin Row is South","University View is North","The Varsity is North"] 
+
+        user_pool=input("Are you looking for a pool?") 
+        user_Gym=input("Are you looking for a Gym?") 
+        user_Parking=input("Are you looking for parking ")
+        user_ElectronicEntryLocks=input("Do you want an apartment with an electronic entry lock system?") 
+
+
+
+
+
             
         
    
