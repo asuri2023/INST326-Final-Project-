@@ -9,13 +9,13 @@ import pandas as pd
 #c=pd.read_csv(s)
 class Apartment:
     
-    def __init__(self, csv1, csv2, merged_data, min_budget, num_rooms, apt_names, location, amenities, floorplan):
+    def __init__(self, csv1, csv2, merged_data, min_budget, num_rooms, apt_names, location, amenities, floorplan="A1"):
         #Merging "CP Apartments_Version2.csv" and "Amenitites.csv"
         self.csv1 = pd.read_csv(r"CP Apartments_Version2.csv")
         self.csv1.head()
         self.csv2 = pd.read_csv(r"Amenitites.csv")
         self.csv2.head()
-        self.merged_data = csv1.merge(csv2, on=["Security Code"]) 
+        self.merged_data = self.csv1.merge(self.csv2, on=["Apartment Name"]) 
         self.merged_data.head()
         # End of merging
         
@@ -23,7 +23,7 @@ class Apartment:
         self.num_rooms = num_rooms
         self.apt_names = ["Terrapin Row","University View","The Varsity"]
         self.location = location 
-        self.amenities = self.readDatabase["Amenities"]
+        self.amenities = self.merged_data["Apartment Name"]
         self.floorplan = floorplan
         
 
@@ -31,8 +31,8 @@ class Apartment:
 
         user_input_budget = int(input("What is your minimum budget?")) 
         cheapest_apt=min(self.min_budget.values)
-        cheapest_to_expensive = [key for key in self.min_budget if self.min_budget[key]==cheapest_apt]
-        if cheapest_apt:
+        matching_apartments = [key for key in self.min_budget if self.min_budget[key] <= user_input_budget]
+        if not matching_apartments:
             raise ValueError("Your budget does not meet the minimum budget for any of the apartments")
         elif user_input_budget >= self.min_budget["Terrapin Row"]:
             return f'You meet the minimum budget of Terrapin Row: {self.min_budget["Terrapin Row"]}'
