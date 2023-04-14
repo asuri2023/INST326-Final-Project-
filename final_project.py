@@ -1,19 +1,23 @@
 import pandas as pd
 import requests
+
+
+
 #df = pd.read_excel(r"/Users/shishirporeddy/Desktop/INST326/College Park Apartment Database_Version1.xlsx#")
 #print(df)
-url="https://docs.google.com/spreadsheets/d/1F8AL1BA8NFl0uHObNFIyygi7sBF6MP3TBv1jbXa7OWg/edit?usp=sharing" 
-s=requests.get(url).content 
-c=pd.read_csv(s)
+#url="https://docs.google.com/spreadsheets/d/1F8AL1BA8NFl0uHObNFIyygi7sBF6MP3TBv1jbXa7OWg/edit?usp=sharing" 
+#s=requests.get(url).content 
+#c=pd.read_csv(s)
 class Apartment:
     
-    def __init__(self, min_budget, num_rooms, apt_names, location, amenities, floorplan):
+    def __init__(self, readDatabase, min_budget, num_rooms, apt_names, location, amenities, floorplan):
         
+        self.readDatabase = pd.read_csv(r"CP Apartments.csv")
         self.min_budget = {"Terrapin Row":1250, "University View":1200, "The Varsity":1104}
         self.num_rooms = num_rooms
         self.apt_names = ["Terrapin Row","University View","The Varsity"]
         self.location = location 
-        self.amenities =pd.read_csv("https://docs.google.com/spreadsheets/d/1F8AL1BA8NFl0uHObNFIyygi7sBF6MP3TBv1jbXa7OWg/edit?usp=sharing")
+        self.amenities = self.readDatabase["Amenities"]
         self.floorplan = floorplan
         
 
@@ -51,7 +55,14 @@ class Apartment:
         user_Parking=input("Are you looking for parking ")
         user_ElectronicEntryLocks=input("Do you want an apartment with an electronic entry lock system?") 
 
-
+        
+    
+    def checkUserInput(self,question,answer):
+        #set of correct answers
+        while True:
+            user_location 
+            
+        
 
 
 
