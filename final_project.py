@@ -9,7 +9,7 @@ import pandas as pd
 #c=pd.read_csv(s)
 class Apartment:
     
-    def __init__(self, csv1, csv2, merged_data, min_budget, num_rooms, apt_names, location, amenities, floorplan="A1"):
+    def __init__(self, csv1, csv2, merged_data, min_budget, num_rooms, apt_names, location, amenities, floorplan):
         #Merging "CP Apartments_Version2.csv" and "Amenitites.csv"
         self.csv1 = pd.read_csv(r"CP Apartments_Version2.csv")
         self.csv1.head()
@@ -55,25 +55,16 @@ class Apartment:
         self.userBudget 
         #Goes to userBudget method and asks user budget questions.
         
-        user_location = input("Which part of UMD campus would be ideal for you. \
-                               Type North or South: ") 
+        user_location = input("Which part of UMD campus would be ideal for you. Type North or South: ") 
                  
-        apt_some_location = ["Terrapin Row is South","University View is North",\
-            "The Varsity is North"] 
+        apt_some_location = ["Terrapin Row is South","University View is North","The Varsity is North"] 
 
-        user_pool=input("Are you looking for a pool? Type 0 for no pool or 1 for\
-                        pool:") 
-        user_gym=int(input("Are you looking for a gym? Type 0 for no gym or 1 for \
-                       gym:"))
-        user_parking=int(input("Are you looking for parking? Type 0 for no parking \
-                           and 1 for parking:" ))
-        user_electronic_entry_locks=int(input("Do you want an apartment with an \
-                                        electronic entry lock system? Type 0 \
-                                        for no system and 1 for a system:"  )) 
-        user_study_rooms=int(input("Are you looking for study rooms? Type 0 for \
-                               no study rooms and 1 for study rooms:"))
-        user_game_lounge=int(input("Are you looking for game lounge? Type 0 for \
-                                no game lounge and 1 for a game lounge:"))
+        user_pool=input("Are you looking for a pool? Type 0 for no pool or 1 for pool:") 
+        user_gym=int(input("Are you looking for a gym? Type 0 for no gym or 1 for gym:"))
+        user_parking=int(input("Are you looking for parking? Type 0 for no parking and 1 for parking:" ))
+        user_electronic_entry_locks=int(input("Do you want an apartment with an electronic entry lock system? Type 0 for no system and 1 for a system:"  )) 
+        user_study_rooms=int(input("Are you looking for study rooms? Type 0 for no study rooms and 1 for study rooms:"))
+        user_game_lounge=int(input("Are you looking for game lounge? Type 0 for no game lounge and 1 for a game lounge:"))
 
     #Possible way to find apartment that fits user's amenitites needs:
     #if user_pool==1 and user_gym==1 and user_parking==1 and \
