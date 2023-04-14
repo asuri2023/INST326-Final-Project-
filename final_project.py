@@ -9,7 +9,7 @@ import pandas as pd
 #c=pd.read_csv(s)
 class Apartment:
     
-    def __init__(self, csv1, csv2, merged_data, min_budget, num_rooms, apt_names, location, amenities, floorplan):
+    def __init__(self, csv1, csv2, merged_data, min_budget, num_rooms, apt_names, location, amenities, floorplan="A1"):
         #Merging "CP Apartments_Version2.csv" and "Amenitites.csv"
         self.csv1 = pd.read_csv(r"CP Apartments_Version2.csv")
         self.csv1.head()
@@ -48,8 +48,7 @@ class Apartment:
 
     def userInput(self):
         
-        print("Please answer the following questions for us to help provide you with \
-              your ideal apartment")
+        print("Please answer the following questions for us to help provide you with your ideal apartment")
         user_name = input("Please enter your full name:")
         
         self.userBudget 
