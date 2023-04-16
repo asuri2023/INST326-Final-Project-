@@ -10,17 +10,13 @@ import pandas as pd
 class Apartment:
     
     def __init__(self):
-        #Members who worked on this method: Avi, Philip, Jhemel, and Shishir.
-        
         # Read the CSV files
         self.apartments_df = pd.read_csv(r"CP Apartments_Version2.csv")
         self.amenities_df = pd.read_csv(r"Amenities.csv")
-        self.merged_data = self.apartments_df.merge(self.amenities_df, 
-                                                    on=["Apartment Name"])
+        self.merged_data = self.apartments_df.merge(self.amenities_df, on=["Apartment Name"])
         #return(self.merged_data)       
         # Store the apartment names and minimum budgets in a dictionary
-        #self.min_budgets = dict(zip(self.merged_data["Apartment Name"], 
-        # self.merged_data["Minimum Price"]))
+        #self.min_budgets = dict(zip(self.merged_data["Apartment Name"], self.merged_data["Minimum Price"]))
         self.apartment_names = self.merged_data["Apartment Name"].unique()
        
        
@@ -36,7 +32,6 @@ class Apartment:
         self.user_game_lounge = None
 
     def userBudget(self,user_input_budget):
-        #Members who worked on this method: Shishir
 
         user_input_budget = int(input("What is your minimum budget?")) 
         cheapest_apt=min(self.min_budget.values)
@@ -59,43 +54,38 @@ class Apartment:
 
 
     def userInput(self):
-        #Members who worked on this method: Avi and Philip
         
-        print("Please answer the following questions for us to help provide you with your ideal apartment")
+        return("Please answer the following questions for us to help provide you with your ideal apartment")
         user_name = input("Please enter your full name:")
         
         
         #userBudget()
-        #user_location  and apt_some_location aren't used at the moment, but
-        # will be used in the future
         
-        user_location = input("Which part of UMD campus would be ideal for you."
-                              " Type North or South: ") 
-    
+        user_location = input("Which part of UMD campus would be ideal for you. Type North or South: ") 
                  
-        apt_some_location = ["Terrapin Row is South","University View is North",
-                             "The Varsity is North"] 
+        apt_some_location = ["Terrapin Row is South","University View is North",\
+            "The Varsity is North"] 
         
         userInputCounter = 0
 
-        user_pool=int(input("Are you looking for a pool? Type 0 for no pool or 1"  
-                        " for pool:")) 
+        user_pool=input("Are you looking for a pool? Type 0 for no pool or 1 for\
+                        pool:") 
         userInputCounter += user_pool
-        user_gym=int(input("Are you looking for a gym? Type 0 for no gym or 1" 
-                        " for gym:"))
+        user_gym=int(input("Are you looking for a gym? Type 0 for no gym or 1 for \
+                       gym:"))
         userInputCounter += user_gym
-        user_parking=int(input("Are you looking for parking? Type 0 for no" 
-                            " parking and 1 for parking:" ))
+        user_parking=int(input("Are you looking for parking? Type 0 for no parking \
+                           and 1 for parking:" ))
         userInputCounter += user_parking
-        user_electronic_entry_locks=int(input("Do you want an apartment with an"
-                                        " electronic entry lock system? Type 0"
-                                        " for no system and 1 for a system:"  )) 
+        user_electronic_entry_locks=int(input("Do you want an apartment with an \
+                                        electronic entry lock system? Type 0 \
+                                        for no system and 1 for a system:"  )) 
         userInputCounter += user_electronic_entry_locks
-        user_study_rooms=int(input("Are you looking for study rooms? Type 0 for"
-                               " no study rooms and 1 for study rooms:"))
+        user_study_rooms=int(input("Are you looking for study rooms? Type 0 for \
+                               no study rooms and 1 for study rooms:"))
         userInputCounter += user_study_rooms
-        user_game_lounge=int(input("Are you looking for game lounge? Type 0 for" 
-                                   " no game lounge and 1 for a game lounge:"))
+        user_game_lounge=int(input("Are you looking for game lounge? Type 0 for \
+                                no game lounge and 1 for a game lounge:"))
         userInputCounter += user_game_lounge
 
 
@@ -103,7 +93,12 @@ class Apartment:
         universityView_or_theVarsity_Amenity_Counter = 3
         
 
-
+        if userInputCounter>= terrapinRow_Amenity_Counter:
+            return("Apartment with your ideal amenities: Terrapin Row")
+        elif userInputCounter>= universityView_or_theVarsity_Amenity_Counter:
+            return("Apartments with your ideal amenities: University View and The Varsity")
+        else:
+            return("None of these apartments have the amenities that you are looking for.")
         # Initialize variables
 #best_apartment = None
 #highest_score = 0
@@ -142,8 +137,6 @@ class Apartment:
         Returns:
         - eligible: boolean, True if user meets all the proper documentation, False otherwise
         """
-        #Members who worked on this method: Jhemel
-        
         identity_proof = int(input("Do you have proof of identity (e.g. driver's license, passport) ? Type 0 for no, 1 for yes:")) 
         income_proof = int(input("Do you have proof of income (e.g. pay stub, bank statement) ? Type 0 for no, 1 for yes:")) 
         identity_proof = int(input("Do you have proof of current residency (e.g. utility bill, lease agreement) ? Type 0 for no, 1 for yes:")) 
@@ -179,16 +172,34 @@ class Apartment:
         #return True
         
 
+# #def main():
+#     # initialize apartment object
+#     #apt = Apartment()
 
+#     # get user budget
+#     #budget = apt.get_user_budget()
 
-#We will implement this main method in the future.
-#def main():
-    #apt = Apartment()
+#     # check eligibility
+#     #apt.check_eligibility(budget)
+  
+    
+#     apartment = Apartment(csv1, csv2, merged_data, min_budget, num_rooms, apt_names, location, amenities, floorplan)
+    
+    
+#     user_name = apartment.userInput()
+#     user_budget = apartment.userBudget()
+
+    
+#     print(f"Hello {user_name}!")
+#     print(user_budget)
+
+def main():
+    apt = Apartment()
     
     #apt.userInput()
     
-#if __name__=='__main__':
-    #main()
+if __name__=='__main__':
+    main()
 
         
 
