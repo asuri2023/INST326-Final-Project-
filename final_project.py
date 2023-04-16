@@ -25,37 +25,16 @@ class Apartment:
         self.location = location 
         self.amenities = self.merged_data["Apartment Name"]
         self.floorplan = floorplan
-        
-
-    def userBudget(self,user_input_budget):
-
-        user_input_budget = int(input("What is your minimum budget?")) 
-        cheapest_apt=min(self.min_budget.values)
-        matching_apartments = [key for key in self.min_budget if self.min_budget[key] <= user_input_budget]
-        if not matching_apartments:
-            raise ValueError("Your budget does not meet the minimum budget for any of the apartments")
-        elif user_input_budget >= self.min_budget["Terrapin Row"]:
-            return f'You meet the minimum budget of Terrapin Row: {self.min_budget["Terrapin Row"]}'
-        elif user_input_budget >= self.min_budget["University View"]:
-            return f'You meet the minimum budget of University View: {self.min_budget["University View"]}'
-        elif user_input_budget >= self.min_budget["The Varsity"]:
-            return f'You meet the minimum budget of The Varsity: {self.min_budget["The Varsity"]}'
-        else:
-            return f'Your budget satisfies the minimum budget of Terrapin Row \
-        ({self.min_budget["Terrapin Row"]}), University View \
-        ({self.min_budget["University View"]}), and The Varsity \
-        ({self.min_budget["The Varsity"]})'
 
     def userInput(self):
         
         print("Please answer the following questions for us to help provide you with your ideal apartment")
         user_name = input("Please enter your full name:")
         
-        userBudget()
+        #userBudget()
         
         user_location = input("Which part of UMD campus would be ideal for you. Type North or South: ") 
                  
-<<<<<<< HEAD
         apt_some_location = ["Terrapin Row is South","University View is North",\
             "The Varsity is North"] 
         
@@ -106,16 +85,6 @@ class Apartment:
         #best_apartment = apartment['number']
         #highest_score = score
     #return best_apartment
-=======
-        apt_some_location = ["Terrapin Row is South","University View is North","The Varsity is North"] 
-
-        user_pool=input("Are you looking for a pool? Type 0 for no pool or 1 for pool:") 
-        user_gym=int(input("Are you looking for a gym? Type 0 for no gym or 1 for gym:"))
-        user_parking=int(input("Are you looking for parking? Type 0 for no parking and 1 for parking:" ))
-        user_electronic_entry_locks=int(input("Do you want an apartment with an electronic entry lock system? Type 0 for no system and 1 for a system:"  )) 
-        user_study_rooms=int(input("Are you looking for study rooms? Type 0 for no study rooms and 1 for study rooms:"))
-        user_game_lounge=int(input("Are you looking for game lounge? Type 0 for no game lounge and 1 for a game lounge:"))
->>>>>>> 70b4ada6aa32f7a9352a01f3bf1f120093df7163
 
     #Possible way to find apartment that fits user's amenitites needs:
     #if user_pool==1 and user_gym==1 and user_parking==1 and \
@@ -124,7 +93,27 @@ class Apartment:
     #return "Terrapin Row"
     #Find a more efficent way to do this by traversing the merged csv file.
 
-    def check_eligibility(identity_proof, income_proof, residency_proof, insurance_proof):
+    def userBudget(self,user_input_budget):
+
+        user_input_budget = int(input("What is your minimum budget?")) 
+        cheapest_apt=min(self.min_budget.values)
+        matching_apartments = [key for key in self.min_budget if self.min_budget[key] <= user_input_budget]
+        if not matching_apartments:
+            raise ValueError("Your budget does not meet the minimum budget for any of the apartments")
+        elif user_input_budget >= self.min_budget["Terrapin Row"]:
+            return f'You meet the minimum budget of Terrapin Row: {self.min_budget["Terrapin Row"]}'
+        elif user_input_budget >= self.min_budget["University View"]:
+            return f'You meet the minimum budget of University View: {self.min_budget["University View"]}'
+        elif user_input_budget >= self.min_budget["The Varsity"]:
+            return f'You meet the minimum budget of The Varsity: {self.min_budget["The Varsity"]}'
+        else:
+            return f'Your budget satisfies the minimum budget of Terrapin Row \
+        ({self.min_budget["Terrapin Row"]}), University View \
+        ({self.min_budget["University View"]}), and The Varsity \
+        ({self.min_budget["The Varsity"]})'
+
+
+    def check_eligibility(self, identity_proof, income_proof, residency_proof, insurance_proof):
         """
         Check if user meets all the proper documentation for leasing.
 
@@ -137,21 +126,29 @@ class Apartment:
         Returns:
         - eligible: boolean, True if user meets all the proper documentation, False otherwise
         """
-<<<<<<< HEAD
+        identity_proof = int(input("Do you have proof of identity (e.g. driver's license, passport) ? Type 0 for no, 1 for yes:")) 
+        income_proof = int(input("Do you have proof of income (e.g. pay stub, bank statement) ? Type 0 for no, 1 for yes:")) 
+        identity_proof = int(input("Do you have proof of current residency (e.g. utility bill, lease agreement) ? Type 0 for no, 1 for yes:")) 
+        insurance_proof = int(input("Do you have proof of insurance (e.g. auto insurance, renters insurance) ? Type 0 for no, 1 for yes:"))                
+ 
+        
+        
+        
+        
         # Check if all proofs of documentation are provided
-=======
-    # Check if all proofs of documentation are provided
->>>>>>> 70b4ada6aa32f7a9352a01f3bf1f120093df7163
-        if identity_proof is None or income_proof is None or residency_proof is None or insurance_proof is None:
-            print("Please provide all the required documentation.")
-            return False
+        if identity_proof == 1 & income_proof == 1 & residency_proof == 1 or insurance_proof == 1:
+            return("You have all the required documentation to live in these apartments")
+            
+        else:
+            return("Please provide all the required documentation.")
+        
         
         # Check if the user meets the minimum income requirement
-        min_income_requirement = 30000  # set a minimum income requirement of $30,000
-        if income_proof < min_income_requirement:
-            print("Your income does not meet the minimum requirement.")
-            return False
-<<<<<<< HEAD
+        #min_income_requirement = 30000  # set a minimum income requirement of $30,000
+        #if income_proof < min_income_requirement:
+            
+            #print("Your income does not meet the minimum requirement.")
+            #return False
         
         # Check if the residency proof is current
         # You could implement this check by comparing the date on the residency_proof to today's date
@@ -160,40 +157,20 @@ class Apartment:
         # You could implement this check by verifying that the insurance policy is currently active
         
         # If all checks pass, the user is eligible
-=======
-    
-    # Check if the residency proof is current
-    # You could implement this check by comparing the date on the residency_proof to today's date
-    
-    # Check if the insurance proof is valid
-    # You could implement this check by verifying that the insurance policy is currently active
-    
-    # If all checks pass, the user is eligible
->>>>>>> 70b4ada6aa32f7a9352a01f3bf1f120093df7163
-        print("Congratulations, you are eligible to lease!")
-        return True
+        #print("Congratulations, you are eligible to lease!")
+        #return True
         
 
-def main():
-<<<<<<< HEAD
+#def main():
     # initialize apartment object
-    apt = Apartment()
+    #apt = Apartment()
 
     # get user budget
-    budget = apt.get_user_budget()
+    #budget = apt.get_user_budget()
 
     # check eligibility
-    apt.check_eligibility(budget)
-=======
-    apt = Apartment("CP Apartments_Version2.csv", "Amenities.csv", None, None, None, None, None, None)
-    apt.userInput()
-    
-if __name__=='__main__':
-    main()
-    
->>>>>>> 70b4ada6aa32f7a9352a01f3bf1f120093df7163
+    #apt.check_eligibility(budget)
 
-            
         
 
 
