@@ -2,34 +2,68 @@ import pandas as pd
 #df = pd.read_csv(r"/Users/shishirporeddy/Documents/GitHub/INST326-Final-Project-/College Park Apartment Database_Version1 - Sheet1.csv")
 #print(df) 
 
-#df = pd.read_excel(r"/Users/shishirporeddy/Desktop/INST326/College Park Apartment Database_Version1.xlsx#")
+#df q= pd.read_excel(r"/Users/shishirporeddy/Desktop/INST326/College Park Apartment Database_Version1.xlsx#")
 #print(df)
 #url="https://docs.google.com/spreadsheets/d/1F8AL1BA8NFl0uHObNFIyygi7sBF6MP3TBv1jbXa7OWg/edit?usp=sharing" 
 #s=requests.get(url).content 
 #c=pd.read_csv(s)
 class Apartment:
     
-    def __init__(self, csv1, csv2, merged_data, min_budget, num_rooms, apt_names, location, amenities, floorplan="A1"):
-        #Merging "CP Apartments_Version2.csv" and "Amenitites.csv"
-        self.csv1 = pd.read_csv(r"CP Apartments_Version2.csv")
-        self.csv1.head()
-        self.csv2 = pd.read_csv(r"Amenitites.csv")
-        self.csv2.head()
-        self.merged_data = self.csv1.merge(self.csv2, on=["Apartment Name"]) 
-        self.merged_data.head()
-        # End of merging
-        
-        self.min_budget = {"Terrapin Row":1250, "University View":1200, "The Varsity":1104}
-        self.num_rooms = num_rooms
-        self.apt_names = ["Terrapin Row","University View","The Varsity"]
-        self.location = location 
-        self.amenities = self.merged_data["Apartment Name"]
-        self.floorplan = floorplan
+    def __init__(self):
+        # Read the CSV files
+        self.apartments_df = pd.read_csv(r"CP Apartments_Version2.csv")
+        self.amenities_df = pd.read_csv(r"Amenities.csv")
+        self.merged_data = self.apartments_df.merge(self.amenities_df, on=["Apartment Name"])
+        #return(self.merged_data)       
+        # Store the apartment names and minimum budgets in a dictionary
+        #self.min_budgets = dict(zip(self.merged_data["Apartment Name"], self.merged_data["Minimum Price"]))
+        self.apartment_names = self.merged_data["Apartment Name"].unique()
+       
+        # Store the amenities in a dictionary of sets
+        self.amenities = {}
+        for apartment in self.apartment_names:
+            print(self.merged_data[self.merged_data["Apartment Name"] == apartment])
+            amenities_set = set(self.merged_data[self.merged_data["Apartment Name"] == apartment]["Amenities"])
+            self.amenities[apartment] = amenities_set
+       
+        # Initialize user attributes to None
+        self.user_name = None
+        self.user_budget = None
+        self.user_location = None
+        self.user_pool = None
+        self.user_gym = None
+        self.user_parking = None
+        self.user_electronic_entry_locks = None
+        self.user_study_rooms = None
+        self.user_game_lounge = None
+
+    def userBudget(self,user_input_budget):
+
+        user_input_budget = int(input("What is your minimum budget?")) 
+        cheapest_apt=min(self.min_budget.values)
+        matching_apartments = [key for key in self.min_budget if self.min_budget[key] <= user_input_budget]
+        if not matching_apartments:
+            raise ValueError("Your budget does not meet the minimum budget for any of the apartments")
+        elif user_input_budget >= self.min_budget["Terrapin Row"]:
+            return f'You meet the minimum budget of Terrapin Row: {self.min_budget["Terrapin Row"]}'
+        elif user_input_budget >= self.min_budget["University View"]:
+            return f'You meet the minimum budget of University View: {self.min_budget["University View"]}'
+        elif user_input_budget >= self.min_budget["The Varsity"]:
+            return f'You meet the minimum budget of The Varsity: {self.min_budget["The Varsity"]}'
+        else:
+            return f'Your budget satisfies the minimum budget of Terrapin Row \
+        ({self.min_budget["Terrapin Row"]}), University View \
+        ({self.min_budget["University View"]}), and The Varsity \
+        ({self.min_budget["The Varsity"]})'
+
+
+
 
     def userInput(self):
         
-        print("Please answer the following questions for us to help provide you with your ideal apartment")
+        return("Please answer the following questions for us to help provide you with your ideal apartment")
         user_name = input("Please enter your full name:")
+        
         
         #userBudget()
         
@@ -93,24 +127,7 @@ class Apartment:
     #return "Terrapin Row"
     #Find a more efficent way to do this by traversing the merged csv file.
 
-    def userBudget(self,user_input_budget):
 
-        user_input_budget = int(input("What is your minimum budget?")) 
-        cheapest_apt=min(self.min_budget.values)
-        matching_apartments = [key for key in self.min_budget if self.min_budget[key] <= user_input_budget]
-        if not matching_apartments:
-            raise ValueError("Your budget does not meet the minimum budget for any of the apartments")
-        elif user_input_budget >= self.min_budget["Terrapin Row"]:
-            return f'You meet the minimum budget of Terrapin Row: {self.min_budget["Terrapin Row"]}'
-        elif user_input_budget >= self.min_budget["University View"]:
-            return f'You meet the minimum budget of University View: {self.min_budget["University View"]}'
-        elif user_input_budget >= self.min_budget["The Varsity"]:
-            return f'You meet the minimum budget of The Varsity: {self.min_budget["The Varsity"]}'
-        else:
-            return f'Your budget satisfies the minimum budget of Terrapin Row \
-        ({self.min_budget["Terrapin Row"]}), University View \
-        ({self.min_budget["University View"]}), and The Varsity \
-        ({self.min_budget["The Varsity"]})'
 
 
     def check_eligibility(self, identity_proof, income_proof, residency_proof, insurance_proof):
@@ -136,7 +153,7 @@ class Apartment:
         
         
         # Check if all proofs of documentation are provided
-        if identity_proof == 1 & income_proof == 1 & residency_proof == 1 or insurance_proof == 1:
+        if identity_proof == 1 and income_proof == 1 and residency_proof == 1 and insurance_proof == 1:
             return("You have all the required documentation to live in these apartments")
             
         else:
@@ -161,15 +178,34 @@ class Apartment:
         #return True
         
 
-#def main():
-    # initialize apartment object
-    #apt = Apartment()
+# #def main():
+#     # initialize apartment object
+#     #apt = Apartment()
 
-    # get user budget
-    #budget = apt.get_user_budget()
+#     # get user budget
+#     #budget = apt.get_user_budget()
 
-    # check eligibility
-    #apt.check_eligibility(budget)
+#     # check eligibility
+#     #apt.check_eligibility(budget)
+  
+    
+#     apartment = Apartment(csv1, csv2, merged_data, min_budget, num_rooms, apt_names, location, amenities, floorplan)
+    
+    
+#     user_name = apartment.userInput()
+#     user_budget = apartment.userBudget()
+
+    
+#     print(f"Hello {user_name}!")
+#     print(user_budget)
+
+def main():
+    apt = Apartment()
+    
+    #apt.userInput()
+    
+if __name__=='__main__':
+    main()
 
         
 
