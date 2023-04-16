@@ -136,7 +136,7 @@ class Apartment:
 
 
 
-    def check_eligibility(self, identity_proof, income_proof, residency_proof, insurance_proof):
+    def check_eligibility(self):
         """
         Check if user meets all the proper documentation for leasing.
 
