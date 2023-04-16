@@ -101,7 +101,14 @@ class Apartment:
 
         terrapinRow_Amenity_Counter = 6
         universityView_or_theVarsity_Amenity_Counter = 3
-        
+        if userInputCounter>= terrapinRow_Amenity_Counter:
+            print("Apartment with your ideal amenities: Terrapin Row")
+        elif userInputCounter>= universityView_or_theVarsity_Amenity_Counter:
+            print("Apartments with your ideal amenities: University View and" 
+                  " The Varsity")
+        else:
+            print("None of these apartments have the amenities that you are" 
+                  " looking for.")
 
 
         # Initialize variables
