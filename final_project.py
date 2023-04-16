@@ -153,7 +153,7 @@ class Apartment:
         
         identity_proof = int(input("Do you have proof of identity (e.g. driver's license, passport) ? Type 0 for no, 1 for yes:")) 
         income_proof = int(input("Do you have proof of income (e.g. pay stub, bank statement) ? Type 0 for no, 1 for yes:")) 
-        identity_proof = int(input("Do you have proof of current residency (e.g. utility bill, lease agreement) ? Type 0 for no, 1 for yes:")) 
+        residency_proof = int(input("Do you have proof of current residency (e.g. utility bill, lease agreement) ? Type 0 for no, 1 for yes:")) 
         insurance_proof = int(input("Do you have proof of insurance (e.g. auto insurance, renters insurance) ? Type 0 for no, 1 for yes:"))                
  
         
