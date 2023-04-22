@@ -3,8 +3,9 @@ import pandas as pd
 class Apartment:
     
     def __init__(self):
-        #Members who worked on this method: Avi, Philip, Jhemel, and Shishir.
-                
+        #Member who worked on this method: Avi
+        #Technique used: Merging operation on Pandas DataFrames
+        
         # Read the CSV files
         self.apartments_df = pd.read_csv(r"CP Apartments_Version2.csv")
         self.amenities_df = pd.read_csv(r"Amenities.csv")
@@ -32,8 +33,8 @@ class Apartment:
         self.user_game_lounge = None
 
     def userBudget(self):
-        #Members who worked on this method: Shishir
-        #Edited by: Avi and Philip
+        #Member who worked on this method: Shishir
+        #Technique used: 
 
         user_input_budget = int(input("What is your minimum budget?")) 
         cheapest_apt=min(self.min_budget.values())
@@ -60,7 +61,8 @@ class Apartment:
             #Or find a way to use cheapest_apt later in this program.
 
     def userInput(self):
-        #Members who worked on this method: Avi and Philip
+        #Member who worked on this method: Philip
+        #Technique used:
         
         print("Please answer the following questions for us to help provide you" 
               " with your ideal apartment")
@@ -130,7 +132,8 @@ class Apartment:
         - eligible: boolean, True if user meets all the proper documentation, 
             False otherwise
         """
-        #Members who worked on this method: Jhemel
+        #Member who worked on this method: Jhemel
+        #Technique used:
         
         identity_proof = int(input("Do you have proof of identity" 
             " (e.g. driver's license, passport) ? Type 0 for no, 1 for yes:")) 
