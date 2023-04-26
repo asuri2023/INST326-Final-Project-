@@ -31,6 +31,7 @@ class Apartment:
         self.user_electronic_entry_locks = None
         self.user_study_rooms = None
         self.user_game_lounge = None
+        self.user_input_budget=None 
 
     def userInput(self):
         #Member who worked on this method: Philip
@@ -89,7 +90,7 @@ class Apartment:
             print("None of these apartments have the amenities that you are" 
                   " looking for.")
         #BUDGET QUESTIONS
-        user_input_budget = int(input("What is your minimum budget?")) 
+        self.user_input_budget = int(input("What is your minimum budget?")) 
 
 
 
