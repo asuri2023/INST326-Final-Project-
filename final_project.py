@@ -32,40 +32,13 @@ class Apartment:
         self.user_study_rooms = None
         self.user_game_lounge = None
 
-    def userBudget(self):
-        #Member who worked on this method: Shishir
-        #Technique used: 
-
-        user_input_budget = int(input("What is your minimum budget?")) 
-        cheapest_apt=min(self.min_budget.values())
-        matching_apartments = [key for key in self.min_budget if 
-                               self.min_budget[key] <= user_input_budget]
-        if not matching_apartments:
-            raise ValueError("Your budget does not meet the minimum budget" 
-                             " for any of the apartments")
-        elif user_input_budget >= self.min_budget["Terrapin Row"]:
-            print (f'Your budget satisfies the minimum budget of all the'
-                   ' apartments:' 
-        f' Terrapin Row:({self.min_budget["Terrapin Row"]}), University View:' 
-        f' ({self.min_budget["University View"]}), and The Varsity:' 
-        f' ({self.min_budget["The Varsity"]})')
-        elif user_input_budget >= self.min_budget["University View"]:
-            print (f'You meet the minimum budget of University View:'
-            f' {self.min_budget["University View"]}')
-        else:
-            print (f'You meet the minimum budget of The Varsity:' 
-            f'{self.min_budget["The Varsity"]}')
-       
-        # Will be used in the future:
-            #return cheapest_apt
-            #Or find a way to use cheapest_apt later in this program.
-
     def userInput(self):
         #Member who worked on this method: Philip
         #Technique used:
         
+        #INTRODUCTION
         print("Please answer the following questions for us to help provide you" 
-              " with your ideal apartment")
+              " with your ideal apartment in College Park.")
         user_name = input("Please enter your full name:")
         
         
@@ -73,6 +46,7 @@ class Apartment:
             #user_location  and apt_some_location aren't used at the moment, but
             # will be used in the future
         
+        #LOCATION QUESTION
         user_location = input("Which part of UMD campus would be ideal for you."
                               " Type North or South: ") 
     
@@ -80,6 +54,7 @@ class Apartment:
         apt_some_location = ["Terrapin Row is South","University View is North",
                              "The Varsity is North"] 
         
+        #AMENTITIES QUESTIONS
         userInputCounter = 0
 
         user_pool=int(input("Are you looking for a pool? Type 0 for no pool or 1"  
@@ -113,6 +88,41 @@ class Apartment:
         else:
             print("None of these apartments have the amenities that you are" 
                   " looking for.")
+        #BUDGET QUESTIONS
+        user_input_budget = int(input("What is your minimum budget?")) 
+
+
+
+
+    def userBudget(self):
+        #Member who worked on this method: Shishir
+        #Technique used: 
+
+        user_input_budget = int(input("What is your minimum budget?")) 
+        cheapest_apt=min(self.min_budget.values())
+        matching_apartments = [key for key in self.min_budget if 
+                               self.min_budget[key] <= user_input_budget]
+        if not matching_apartments:
+            raise ValueError("Your budget does not meet the minimum budget" 
+                             " for any of the apartments")
+        elif user_input_budget >= self.min_budget["Terrapin Row"]:
+            print (f'Your budget satisfies the minimum budget of all the'
+                   ' apartments:' 
+        f' Terrapin Row:({self.min_budget["Terrapin Row"]}), University View:' 
+        f' ({self.min_budget["University View"]}), and The Varsity:' 
+        f' ({self.min_budget["The Varsity"]})')
+        elif user_input_budget >= self.min_budget["University View"]:
+            print (f'You meet the minimum budget of University View:'
+            f' {self.min_budget["University View"]}')
+        else:
+            print (f'You meet the minimum budget of The Varsity:' 
+            f'{self.min_budget["The Varsity"]}')
+       
+        # Will be used in the future:
+            #return cheapest_apt
+            #Or find a way to use cheapest_apt later in this program.
+
+
         
     def check_eligibility(self):
         """
