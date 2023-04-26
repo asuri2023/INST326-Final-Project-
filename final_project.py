@@ -7,8 +7,8 @@ class Apartment:
         #Technique used: Merging operation on Pandas DataFrames
         
         # Read the CSV files
-        self.apartments_df = pd.read_csv(r"CP Apartments_Version2.csv")
-        self.amenities_df = pd.read_csv(r"Amenities.csv")
+        self.apartments_df = pd.read_csv(r"CP Apartments_Version3.csv")
+        self.amenities_df = pd.read_csv(r"Amenitites_Version2.csv")
         self.merged_data = self.apartments_df.merge(self.amenities_df, 
                                                     on=["Apartment Name"])
             
