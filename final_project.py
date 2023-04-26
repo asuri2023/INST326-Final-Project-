@@ -99,25 +99,30 @@ class Apartment:
         #Member who worked on this method: Shishir
         #Technique used: 
 
-        user_input_budget = int(input("What is your minimum budget?")) 
         cheapest_apt=min(self.min_budget.values())
         matching_apartments = [key for key in self.min_budget if 
-                               self.min_budget[key] <= user_input_budget]
+                               self.min_budget[key] <= self.user_input_budget]
         if not matching_apartments:
             raise ValueError("Your budget does not meet the minimum budget" 
                              " for any of the apartments")
-        elif user_input_budget >= self.min_budget["Terrapin Row"]:
+        elif self.user_input_budget >= self.min_budget["Terrapin Row"]:
             print (f'Your budget satisfies the minimum budget of all the'
                    ' apartments:' 
         f' Terrapin Row:({self.min_budget["Terrapin Row"]}), University View:' 
         f' ({self.min_budget["University View"]}), and The Varsity:' 
         f' ({self.min_budget["The Varsity"]})')
-        elif user_input_budget >= self.min_budget["University View"]:
+        elif self.user_input_budget >= self.min_budget["University View"]:
             print (f'You meet the minimum budget of University View:'
             f' {self.min_budget["University View"]}')
         else:
             print (f'You meet the minimum budget of The Varsity:' 
             f'{self.min_budget["The Varsity"]}')
+            
+        #STEP 2 :CALCULATE ADDITIONAL EXPENSES (EXPENSES THE MONTHLY RENT DOES NOT COVER)
+       # Additional expenses:
+         
+      
+       #STEP 3 :DOES USER HAVE ENOUGH MONEY TO PAY RENT FOR THEIR DURATION (FULL YEAR OR HALF A YEAR) OF STAY
        
         # Will be used in the future:
             #return cheapest_apt
