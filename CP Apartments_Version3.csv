@@ -1,0 +1,306 @@
+Apartment Name,Apartment Number,Location,Floor Plan,Number of Rooms Available,Room Code
+Terrapin Row,1100,Close to South UMD campus,"1 bedroom, 1 bath",0,not available
+Terrapin Row,1101,Close to South UMD campus,"2 bedroom, 2 bath",2,"a,b,"
+Terrapin Row,1102,Close to South UMD campus,"3 bedroom ,3 bath",3,"a,b,c"
+Terrapin Row,1103,Close to South UMD campus,"4 bedroom , 4 bath",0,not available
+Terrapin Row,1104,Close to South UMD campus,"1 bedroom, 1 bath",0,not available
+Terrapin Row,1105,Close to South UMD campus,"2 bedroom, 2 bath",1,a
+Terrapin Row,1106,Close to South UMD campus,"3 bedroom ,3 bath",2,"b,c"
+Terrapin Row,1107,Close to South UMD campus,"4 bedroom , 4 bath",2,"b,d "
+Terrapin Row,1108,Close to South UMD campus,"1 bedroom, 1 bath",0,not available
+Terrapin Row,1109,Close to South UMD campus,"2 bedroom, 2 bath",0,not available
+Terrapin Row,1110,Close to South UMD campus,"3 bedroom ,3 bath",2,"a,c"
+Terrapin Row,1200,Close to South UMD campus,"4 bedroom , 4 bath",4,"a,b,c"
+Terrapin Row,1201,Close to South UMD campus,"1 bedroom, 1 bath",0,not available
+Terrapin Row,1202,Close to South UMD campus,"2 bedroom, 2 bath",0,not available
+Terrapin Row,1203,Close to South UMD campus,"3 bedroom ,3 bath",1,c
+Terrapin Row,1204,Close to South UMD campus,"4 bedroom , 4 bath",3,"a,b,c"
+Terrapin Row,1205,Close to South UMD campus,"1 bedroom, 1 bath",1,b
+Terrapin Row,1206,Close to South UMD campus,"2 bedroom, 2 bath",4,"a,b,c,d"
+Terrapin Row,1207,Close to South UMD campus,"3 bedroom ,3 bath",2,"b,c"
+Terrapin Row,1208,Close to South UMD campus,"4 bedroom , 4 bath",3,"a, b,c"
+Terrapin Row,1209,Close to South UMD campus,"1 bedroom, 1 bath",1,a
+Terrapin Row,1210,Close to South UMD campus,"2 bedroom, 2 bath",2,"a,b"
+Terrapin Row,1300,Close to South UMD campus,"3 bedroom ,3 bath",0,not available
+Terrapin Row,1301,Close to South UMD campus,"4 bedroom , 4 bath",1,b
+Terrapin Row,1302,Close to South UMD campus,"1 bedroom, 1 bath",0,not available
+Terrapin Row,1303,Close to South UMD campus,"2 bedroom, 2 bath",2,"a,c"
+Terrapin Row,1304,Close to South UMD campus,"3 bedroom ,3 bath",3,"a,b,c"
+Terrapin Row,1305,Close to South UMD campus,"4 bedroom , 4 bath",4,"a,b,c,d"
+Terrapin Row,1306,Close to South UMD campus,"1 bedroom, 1 bath",0,not available
+Terrapin Row,1307,Close to South UMD campus,"2 bedroom, 2 bath",2,"a,b"
+Terrapin Row,1308,Close to South UMD campus,"3 bedroom ,3 bath",1,a
+Terrapin Row,1309,Close to South UMD campus,"4 bedroom , 4 bath",2,"c,d"
+Terrapin Row,1310,Close to South UMD campus,"1 bedroom, 1 bath",2,"b,c"
+Terrapin Row,1400,Close to South UMD campus,"2 bedroom, 2 bath",0,not available
+Terrapin Row,1401,Close to South UMD campus,"3 bedroom ,3 bath",0,not available
+Terrapin Row,1402,Close to South UMD campus,"4 bedroom , 4 bath",3,"a,b,c"
+Terrapin Row,1403,Close to South UMD campus,"1 bedroom, 1 bath",2,"b,c"
+Terrapin Row,1404,Close to South UMD campus,"2 bedroom, 2 bath",4,"a,b,c,d"
+Terrapin Row,1405,Close to South UMD campus,"3 bedroom ,3 bath",2,"a,b"
+Terrapin Row,1406,Close to South UMD campus,"4 bedroom , 4 bath",1,a
+Terrapin Row,1407,Close to South UMD campus,"1 bedroom, 1 bath",1,a
+Terrapin Row,1408,Close to South UMD campus,"2 bedroom, 2 bath",3,"a,b,c"
+Terrapin Row,1409,Close to South UMD campus,"3 bedroom ,3 bath",2,"a,b"
+Terrapin Row,1410,Close to South UMD campus,"4 bedroom , 4 bath",1,c
+Terrapin Row,1500,Close to South UMD campus,"1 bedroom, 1 bath",0,not available
+Terrapin Row,1501,Close to South UMD campus,"2 bedroom, 2 bath",1,b
+Terrapin Row,1502,Close to South UMD campus,"3 bedroom ,3 bath",3,"a,b,c"
+Terrapin Row,1503,Close to South UMD campus,"4 bedroom , 4 bath",2,"a,d"
+Terrapin Row,1504,Close to South UMD campus,"1 bedroom, 1 bath",0,not available
+Terrapin Row,1505,Close to South UMD campus,"2 bedroom, 2 bath",0,not available
+Terrapin Row,1506,Close to South UMD campus,"3 bedroom ,3 bath",2,"a,c"
+Terrapin Row,1507,Close to South UMD campus,"4 bedroom , 4 bath",3,"b,c,d"
+Terrapin Row,1508,Close to South UMD campus,"1 bedroom, 1 bath",0, not available
+Terrapin Row,1509,Close to South UMD campus,"2 bedroom, 2 bath",1,a
+Terrapin Row,1510,Close to South UMD campus,"3 bedroom ,3 bath",2,"c,d"
+,,,,,
+University View,100,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+University View,101,Close to North UMD campus,"2 bedroom, 2 bath",1,a
+University View,102,Close to North UMD campus,"3 bedroom ,3 bath",2,"b,c"
+University View,103,Close to North UMD campus,"4 bedroom , 4 bath",1,d
+University View,104,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+University View,105,Close to North UMD campus,"2 bedroom, 2 bath",2,"a,b"
+University View,106,Close to North UMD campus,"3 bedroom ,3 bath",2,"a,c"
+University View,107,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+University View,108,Close to North UMD campus,"2 bedroom, 2 bath",0,not available
+University View,109,Close to North UMD campus,"3 bedroom ,3 bath",3,"a,b,c"
+University View,200,Close to North UMD campus,"4 bedroom , 4 bath",2,"a,d"
+University View,201,Close to North UMD campus,"1 bedroom, 1 bath",1,a
+University View,202,Close to North UMD campus,"2 bedroom, 2 bath",2,"a,b"
+University View,203,Close to North UMD campus,"3 bedroom ,3 bath",2,"b,c"
+University View,204,Close to North UMD campus,"4 bedroom , 4 bath",3,"b,c,d"
+University View,205,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+University View,206,Close to North UMD campus,"2 bedroom, 2 bath",0,not available
+University View,207,Close to North UMD campus,"3 bedroom ,3 bath",0,not available
+University View,208,Close to North UMD campus,"4 bedroom , 4 bath",0,not available
+University View,209,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+University View,300,Close to North UMD campus,"2 bedroom, 2 bath",1,b
+University View,301,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+University View,302,Close to North UMD campus,"2 bedroom, 2 bath",2,"a,b"
+University View,303,Close to North UMD campus,"3 bedroom ,3 bath",1,c
+University View,304,Close to North UMD campus,"4 bedroom , 4 bath",2,"b,c"
+University View,305,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+University View,306,Close to North UMD campus,"2 bedroom, 2 bath",1,a
+University View,307,Close to North UMD campus,"3 bedroom ,3 bath",1,a
+University View,308,Close to North UMD campus,"4 bedroom , 4 bath",1,a
+University View,309,Close to North UMD campus,"4 bedroom , 4 bath",2,"b,c"
+University View,400,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+University View,401,Close to North UMD campus,"2 bedroom, 2 bath",1,a
+University View,402,Close to North UMD campus,"3 bedroom ,3 bath",2,"a,b"
+University View,403,Close to North UMD campus,"4 bedroom , 4 bath",1,d
+University View,404,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+University View,405,Close to North UMD campus,"2 bedroom, 2 bath",1,b
+University View,406,Close to North UMD campus,"3 bedroom ,3 bath",1,c
+University View,407,Close to North UMD campus,"4 bedroom , 4 bath",2,"a,d"
+University View,408,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+University View,409,Close to North UMD campus,"2 bedroom, 2 bath",1,b
+University View,500,Close to North UMD campus,"4 bedroom , 4 bath",3,"a,b,d"
+University View,501,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+University View,502,Close to North UMD campus,"2 bedroom, 2 bath",1,b
+University View,503,Close to North UMD campus,"3 bedroom ,3 bath",3,"a,b,c"
+University View,504,Close to North UMD campus,"4 bedroom , 4 bath",4,"a,b,c,d"
+University View,505,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+University View,506,Close to North UMD campus,"2 bedroom, 2 bath",1,a
+University View,507,Close to North UMD campus,"3 bedroom ,3 bath",1,a
+University View,508,Close to North UMD campus,"4 bedroom , 4 bath",1,a
+University View,509,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+University View,600,Close to North UMD campus,"2 bedroom, 2 bath",2,"a,b"
+University View,601,Close to North UMD campus,"3 bedroom ,3 bath",0,not available
+University View,602,Close to North UMD campus,"4 bedroom , 4 bath",4,"a,b,c,d"
+University View,603,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+University View,604,Close to North UMD campus,"2 bedroom, 2 bath",2,"a,b"
+University View,605,Close to North UMD campus,"3 bedroom ,3 bath",1,a
+University View,606,Close to North UMD campus,"4 bedroom , 4 bath",1,a
+University View,607,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+University View,608,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+University View,609,Close to North UMD campus,"3 bedroom ,3 bath",2,"b,c"
+University View,700,Close to North UMD campus,"4 bedroom , 4 bath",1,a
+University View,701,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+University View,702,Close to North UMD campus,"2 bedroom, 2 bath",1,b
+University View,703,Close to North UMD campus,"3 bedroom ,3 bath",2,"a,c"
+University View,704,Close to North UMD campus,"4 bedroom , 4 bath",0,not available
+University View,705,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+University View,706,Close to North UMD campus,"3 bedroom ,3 bath",1,a
+University View,707,Close to North UMD campus,"4 bedroom , 4 bath",2,"a,b"
+University View,708,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+University View,709,Close to North UMD campus,"2 bedroom, 2 bath",1,b
+University View,800,Close to North UMD campus,"3 bedroom ,3 bath",3,"a,b,c"
+University View,801,Close to North UMD campus,"4 bedroom , 4 bath",4,"a,b,c,d"
+University View,802,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+University View,803,Close to North UMD campus,"2 bedroom, 2 bath",1,a
+University View,805,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+University View,806,Close to North UMD campus,"2 bedroom, 2 bath",1,a
+University View,807,Close to North UMD campus,"3 bedroom ,3 bath",1,a
+University View,808,Close to North UMD campus,"4 bedroom , 4 bath",1,a
+University View,809,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+University View,900,Close to North UMD campus,"2 bedroom, 2 bath",2,"a,b"
+University View,901,Close to North UMD campus,"3 bedroom ,3 bath",3,"a,b,c"
+University View,902,Close to North UMD campus,"4 bedroom , 4 bath",4,"a,b,c,d"
+University View,903,Close to North UMD campus,"4 bedroom , 4 bath",1,d
+University View,904,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+University View,905,Close to North UMD campus,"2 bedroom, 2 bath",0,not available
+University View,906,Close to North UMD campus,"3 bedroom ,3 bath",0,not available
+University View,907,Close to North UMD campus,"4 bedroom , 4 bath",1,a
+University View,908,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+University View,909,Close to North UMD campus,"2 bedroom, 2 bath",1,a
+University View,1000,Close to North UMD campus,"3 bedroom ,3 bath",3,"a,b,c"
+University View,1001,Close to North UMD campus,"4 bedroom , 4 bath",2,"b,d"
+University View,1002,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+University View,1003,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+University View,1004,Close to North UMD campus,"2 bedroom, 2 bath",0,not available
+University View,1005,Close to North UMD campus,"3 bedroom ,3 bath",0,not available
+University View,1006,Close to North UMD campus,"4 bedroom , 4 bath",1,a
+University View,1007,Close to North UMD campus,"4 bedroom , 4 bath",1,d
+University View,1008,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+University View,1009,Close to North UMD campus,"2 bedroom, 2 bath",2,"a,b"
+University View,1100,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+University View,1101,Close to North UMD campus,"2 bedroom, 2 bath",1,a
+University View,1102,Close to North UMD campus,"3 bedroom ,3 bath",2,"b,c"
+University View,1103,Close to North UMD campus,"4 bedroom , 4 bath",2,"b,d"
+University View,1104,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+University View,1105,Close to North UMD campus,"2 bedroom, 2 bath",0,not available
+University View,1106,Close to North UMD campus,"3 bedroom ,3 bath",0,not available
+University View,1107,Close to North UMD campus,"4 bedroom , 4 bath",0,not available
+University View,1108,Close to North UMD campus,"4 bedroom , 4 bath",1,d
+University View,1109,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+University View,1200,Close to North UMD campus,"2 bedroom, 2 bath",2,"a,b"
+University View,1201,Close to North UMD campus,"3 bedroom ,3 bath",1,c
+University View,1202,Close to North UMD campus,"4 bedroom , 4 bath",1,b
+University View,1203,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+University View,1204,Close to North UMD campus,"2 bedroom, 2 bath",1,b
+University View,1205,Close to North UMD campus,"3 bedroom ,3 bath",2,"b,c"
+University View,1206,Close to North UMD campus,"4 bedroom , 4 bath",3,"a,b,d"
+University View,1207,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+University View,1208,Close to North UMD campus,"2 bedroom, 2 bath",1,b
+University View,1209,Close to North UMD campus,"4 bedroom, 2 bath ",1,d
+,,,,,
+The Varsity,100,Close to North UMD campus,"1 bedroom, 1 bath",1,a
+The Varsity,101,Close to North UMD campus,"2 bedroom, 2 bath",1,a
+The Varsity,102,Close to North UMD campus,"3 bedroom ,3 bath",3,"a,b,c"
+The Varsity,103,Close to North UMD campus,"4 bedroom , 4 bath",4,"a,b,c,d"
+The Varsity,104,Close to North UMD campus,"4 bedroom , 4 bath",4,"a,b,c,d"
+The Varsity,105,Close to North UMD campus,"1 bedroom, 1 bath",1,a
+The Varsity,106,Close to North UMD campus,"2 bedroom, 2 bath",2,"a,b"
+The Varsity,107,Close to North UMD campus,"4 bedroom , 4 bath",4,"a,b,c,d"
+The Varsity,200,Close to North UMD campus,"1 bedroom, 1 bath",1,a
+The Varsity,201,Close to North UMD campus,"3 bedroom ,3 bath",3,"a,b,c"
+The Varsity,202,Close to North UMD campus,"4 bedroom , 4 bath",4,"a,b,c,d"
+The Varsity,203,Close to North UMD campus,"1 bedroom, 1 bath",1,a
+The Varsity,204,Close to North UMD campus,"2 bedroom, 2 bath",2,"a,b"
+The Varsity,205,Close to North UMD campus,"1 bedroom, 1 bath",1,a
+The Varsity,206,Close to North UMD campus,"3 bedroom, 2 bath",3,"a,b,c"
+The Varsity,207,Close to North UMD campus,"2 bedroom, 1 bath",2,"a,b"
+The Varsity,300,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+The Varsity,301,Close to North UMD campus,"2 bedroom, 2 bath",1,b
+The Varsity,302,Close to North UMD campus,"1 bedroom, 1 bath",1,a
+The Varsity,303,Close to North UMD campus,"3 bedroom ,3 bath",2,"b,c"
+The Varsity,304,Close to North UMD campus,"4 bedroom , 4 bath",3,"a,c,d"
+The Varsity,305,Close to North UMD campus,"1 bedroom, 1 bath",1,a
+The Varsity,306,Close to North UMD campus,"1 bedroom, 1 bath",1,a
+The Varsity,307,Close to North UMD campus,"1 bedroom, 1 bath",1,a
+The Varsity,400,Close to North UMD campus,"2 bedroom, 2 bath",1,b
+The Varsity,401,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+The Varsity,402,Close to North UMD campus,"2 bedroom, 2 bath",1,a
+The Varsity,403,Close to North UMD campus,"3 bedroom ,3 bath",3,"a,b,c"
+The Varsity,404,Close to North UMD campus,"4 bedroom , 4 bath",0,not available
+The Varsity,405,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+The Varsity,406,Close to North UMD campus,"2 bedroom, 2 bath",1,b
+The Varsity,407,Close to North UMD campus,"3 bedroom ,3 bath",2,"b,c"
+The Varsity,500,Close to North UMD campus,"4 bedroom , 4 bath",3,"a,c,d"
+The Varsity,501,Close to North UMD campus,"3 bedroom ,3 bath",1,b
+The Varsity,502,Close to North UMD campus,"4 bedroom , 4 bath",2,"b,c"
+The Varsity,503,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+The Varsity,504,Close to North UMD campus,"2 bedroom, 2 bath",1,b
+The Varsity,505,Close to North UMD campus,"3 bedroom ,3 bath",2,"a,c"
+The Varsity,506,Close to North UMD campus,"4 bedroom , 4 bath",2,"b,d"
+The Varsity,507,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+The Varsity,600,Close to North UMD campus,"4 bedroom , 4 bath",4,"a,b,c,d"
+The Varsity,601,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+The Varsity,602,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+The Varsity,603,Close to North UMD campus,"3 bedroom ,3 bath",3,"a,b,c"
+The Varsity,604,Close to North UMD campus,"4 bedroom , 4 bath",2,"a,b"
+The Varsity,605,Close to North UMD campus,"1 bedroom, 1 bath",1,a
+The Varsity,606,Close to North UMD campus,"2 bedroom, 2 bath",2,"a,b"
+The Varsity,607,Close to North UMD campus,"3 bedroom ,3 bath",1,a
+The Varsity,700,Close to North UMD campus,"4 bedroom , 4 bath",2,"a,d"
+The Varsity,701,Close to North UMD campus,"1 bedroom, 1 bath",1,a
+The Varsity,702,Close to North UMD campus,"2 bedroom, 2 bath",1,b
+The Varsity,703,Close to North UMD campus,"3 bedroom ,3 bath",2,"b,c"
+The Varsity,704,Close to North UMD campus,"4 bedroom , 4 bath",3,"a,b,c"
+The Varsity,705,Close to North UMD campus,"4 bedroom ,3 bath",3,"a,b,c"
+The Varsity,706,Close to North UMD campus,"4 bedroom , 4 bath",2,"a,b"
+The Varsity,707,Close to North UMD campus,"4 bedroom , 4 bath",2,"a,b"
+The Varsity,800,Close to North UMD campus,"1 bedroom, 1 bath",1,a
+The Varsity,801,Close to North UMD campus,"2 bedroom, 2 bath",1,a
+The Varsity,802,Close to North UMD campus,"3 bedroom ,3 bath",2,"b,c"
+The Varsity,803,Close to North UMD campus,"2 bedroom, 2 bath",1,b
+The Varsity,804,Close to North UMD campus,"3 bedroom ,3 bath",2,"b,c"
+The Varsity,805,Close to North UMD campus,"2 bedroom, 2 bath",1,a
+The Varsity,806,Close to North UMD campus,"4 bedroom , 4 bath",2,"a,d"
+The Varsity,807,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+The Varsity,900,Close to North UMD campus,"2 bedroom, 2 bath",2,"a,b"
+The Varsity,901,Close to North UMD campus,"4 bedroom, 4 bath",2,"b,c"
+The Varsity,902,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+The Varsity,903,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+The Varsity,904,Close to North UMD campus,"4 bedroom , 4 bath",2,"b,c"
+The Varsity,905,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+The Varsity,906,Close to North UMD campus,"1 bedroom, 1 bath",0,not available
+The Varsity,907,Close to North UMD campus,"3 bedroom, 3 bath",3,"a,b,c"
+,,,,,
+South Campus Commons,100,Close to South UMD campus,"1 bedroom, 1 bath",0,not available
+South Campus Commons,101,Close to South UMD campus,"2 bedroom, 2 bath",2,"a,b"
+South Campus Commons,102,Close to South UMD campus,"3 bedroom ,3 bath",3,"a,b,c"
+South Campus Commons,103,Close to South UMD campus,"4 bedroom , 4 bath",0,not available
+South Campus Commons,104,Close to South UMD campus,"1 bedroom, 1 bath",0,not available
+South Campus Commons,105,Close to South UMD campus,"2 bedroom, 2 bath",1,a
+South Campus Commons,106,Close to South UMD campus,"3 bedroom ,3 bath",2,"b,c"
+South Campus Commons,107,Close to South UMD campus,"4 bedroom , 4 bath",2,"b,d"
+South Campus Commons,200,Close to South UMD campus,"1 bedroom, 1 bath",0,not available
+South Campus Commons,201,Close to South UMD campus,"2 bedroom, 2 bath",0,not available
+South Campus Commons,202,Close to South UMD campus,"3 bedroom ,3 bath",2,"a,c"
+South Campus Commons,203,Close to South UMD campus,"4 bedroom , 4 bath",4,"a,b,c"
+South Campus Commons,204,Close to South UMD campus,"1 bedroom, 1 bath",0,not available
+South Campus Commons,205,Close to South UMD campus,"2 bedroom, 2 bath",0,not available
+South Campus Commons,206,Close to South UMD campus,"3 bedroom ,3 bath",1,c
+South Campus Commons,207,Close to South UMD campus,"4 bedroom , 4 bath",3,"a,b,c"
+South Campus Commons,300,Close to South UMD campus,"1 bedroom, 1 bath",1,a
+South Campus Commons,301,Close to South UMD campus,"2 bedroom, 2 bath",4,"a,b,c,d"
+South Campus Commons,302,Close to South UMD campus,"3 bedroom ,3 bath",2,"b,c"
+South Campus Commons,303,Close to South UMD campus,"4 bedroom , 4 bath",3,"a,b,c,d"
+South Campus Commons,304,Close to South UMD campus,"1 bedroom, 1 bath",1,a
+South Campus Commons,305,Close to South UMD campus,"2 bedroom, 2 bath",2,"a,b"
+South Campus Commons,306,Close to South UMD campus,"3 bedroom ,3 bath",0,not available
+South Campus Commons,307,Close to South UMD campus,"4 bedroom , 4 bath",1,b
+South Campus Commons,400,Close to South UMD campus,"1 bedroom, 1 bath",0,not available
+South Campus Commons,401,Close to South UMD campus,"2 bedroom, 2 bath",2,"a,b"
+South Campus Commons,402,Close to South UMD campus,"3 bedroom ,3 bath",3,"a,b,c"
+South Campus Commons,403,Close to South UMD campus,"4 bedroom , 4 bath",4,"a,b,c,d"
+South Campus Commons,404,Close to South UMD campus,"1 bedroom, 1 bath",0,not available
+South Campus Commons,405,Close to South UMD campus,"2 bedroom, 2 bath",2,"a,b"
+South Campus Commons,406,Close to South UMD campus,"3 bedroom ,3 bath",1,c
+South Campus Commons,407,Close to South UMD campus,"4 bedroom , 4 bath",2,"a,b"
+South Campus Commons,500,Close to South UMD campus,"1 bedroom, 1 bath",2,"b,c"
+South Campus Commons,501,Close to South UMD campus,"2 bedroom, 2 bath",0,not available
+South Campus Commons,502,Close to South UMD campus,"3 bedroom ,3 bath",0,not available
+South Campus Commons,503,Close to South UMD campus,"4 bedroom , 4 bath",3,"a,b,c"
+South Campus Commons,504,Close to South UMD campus,"1 bedroom, 1 bath",2,"b,c"
+South Campus Commons,505,Close to South UMD campus,"2 bedroom, 2 bath",4,"a,b,c,d"
+South Campus Commons,506,Close to South UMD campus,"3 bedroom ,3 bath",2,"a,b"
+South Campus Commons,507,Close to South UMD campus,"4 bedroom , 4 bath",1,a
+South Campus Commons,600,Close to South UMD campus,"1 bedroom, 1 bath",1,a
+South Campus Commons,601,Close to South UMD campus,"2 bedroom, 2 bath",3,"a,b,c"
+South Campus Commons,602,Close to South UMD campus,"3 bedroom ,3 bath",2,"a,b"
+South Campus Commons,603,Close to South UMD campus,"4 bedroom , 4 bath",1,c
+South Campus Commons,604,Close to South UMD campus,"1 bedroom, 1 bath",0,not available
+South Campus Commons,605,Close to South UMD campus,"2 bedroom, 2 bath",1,b
+South Campus Commons,606,Close to South UMD campus,"3 bedroom ,3 bath",3,"a,b,c"
+South Campus Commons,607,Close to South UMD campus,"4 bedroom , 4 bath",2,"a,d"
+South Campus Commons,700,Close to South UMD campus,"1 bedroom, 1 bath",0,not available
+South Campus Commons,701,Close to South UMD campus,"2 bedroom, 2 bath",0,not available
+South Campus Commons,702,Close to South UMD campus,"3 bedroom ,3 bath",2,"a,c"
+South Campus Commons,703,Close to South UMD campus,"4 bedroom , 4 bath",3,"b,c,d"
+South Campus Commons,704,Close to South UMD campus,"1 bedroom, 1 bath",0,not available
+South Campus Commons,705,Close to South UMD campus,"2 bedroom, 2 bath",1,a
+South Campus Commons,706,Close to South UMD campus,"3 bedroom, 2 bath",1,a
+South Campus Commons,707,Close to South UMD campus,"4 bedroom, 2 bath",1,a

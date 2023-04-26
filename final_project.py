@@ -52,8 +52,14 @@ class Apartment:
                               " Type North or South: ") 
     
                  
-        apt_some_location = ["Terrapin Row is South","University View is North",
-                             "The Varsity is North"] 
+        apt_location_dictionary = {"Terrapin Row":"South","University View":"North",
+                             "The Varsity":"North"}
+        
+        northOrSouth = lambda user_location:"Terrapin Row" if user_location == "South" else "" 
+        
+        
+        
+        
         
         #AMENTITIES QUESTIONS
         userInputCounter = 0
