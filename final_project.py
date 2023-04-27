@@ -38,9 +38,34 @@ class Apartment:
         #Technique used:
         
         #INTRODUCTION
-        print("Please answer the following questions for us to help provide you" 
-              " with your ideal apartment in College Park.")
+        print("Welcome to the College Park Apartment Portal! There are four "
+              "apartments to choose from: Terrapin Row, University View, " 
+              "The Varsity, and South Campus Commons.")
+        print("The University of Maryland, College Park is divided into "
+              "North and South campus, with Mckeldin Mall being the division "
+              "line.")
+        print("Facing the front of Mckeldin Library, any land to the right of "
+              "the library is North and any land to the left of the library is "
+              "South.")
+        print("Terrapin Row and South Campus Commons are located in "
+              "North campus.")
+        print("University View and The Varsity are located in South campus.")
+        print("Answer some questions to find your ideal apartment!")
+
         user_name = input("Please enter your full name:")
+        
+        #MAJOR CATEGORIES
+        major_category_input = input("Which of the following categories "
+                                     "would your major fall under?\n"
+          "Type 1 for STEM (Classes in North campus)\n"
+          "Type 2 for Business (Classes in South campus)\n"
+          "Type 3 for Public Policy (Classes in South campus)\n"
+          "Type 4 for Fine arts (Classes in North campus)\n"
+          "Type 5 for Architecture (South campus)")
+        major_category_dictionary = {"STEM":1,"Business":2,"Public Policy":3,
+                                     "Fine arts":4,"Architecture":5}
+        
+        #SETS         
         
         
         # Will be used in the future:
