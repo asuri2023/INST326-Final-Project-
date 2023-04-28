@@ -1,4 +1,5 @@
 import pandas as pd
+import seaborn as sns
 
 class Apartment:
     
@@ -9,8 +10,12 @@ class Apartment:
         # Read the CSV files
         self.apartments_df = pd.read_csv(r"CP Apartments_Version3.csv")
         self.amenities_df = pd.read_csv(r"Amenitites_Version2.csv")
+        self.historical_df = pd.read_csv(r"Major Historical Data_Version3.csv")
+        
+        # Merging operation on Pandas DataFrames
         self.merged_data = self.apartments_df.merge(self.amenities_df, 
                                                     on=["Apartment Name"])
+        
             
         # Will be used in the future:
             # Store the apartment names and minimum budgets in a dictionary
@@ -48,23 +53,100 @@ class Apartment:
               "the library is North and any land to the left of the library is "
               "South.")
         print("Terrapin Row and South Campus Commons are located in "
-              "North campus.")
-        print("University View and The Varsity are located in South campus.")
+              "South campus.")
+        print("University View and The Varsity are located in North campus.")
         print("Answer some questions to find your ideal apartment!")
 
         user_name = input("Please enter your full name:")
         
         #MAJOR CATEGORIES
-        major_category_input = input("Which of the following categories "
+        major_category_input = int(input("Which one of the following categories "
                                      "would your major fall under?\n"
           "Type 1 for STEM (Classes in North campus)\n"
           "Type 2 for Business (Classes in South campus)\n"
           "Type 3 for Public Policy (Classes in South campus)\n"
-          "Type 4 for Fine arts (Classes in North campus)\n"
-          "Type 5 for Architecture (South campus)")
-        major_category_dictionary = {"STEM":1,"Business":2,"Public Policy":3,
-                                     "Fine arts":4,"Architecture":5}
+          "Type 4 for Fine Arts (Classes in North campus)\n"
+          "Type 5 for Architecture (South campus)"))
         
+        major_number_dictionary = {1:"STEM",2:"Business", 3:"Public Policy",
+                                     4:"Fine Arts",5:"Architecture"}
+        
+        major_proximity_dictionary = {1:"University View and The Varsity "
+                                     "are located near STEM buildings",
+                                     2:"Terrapin Row and South Campus Commons "
+                                     "are located near Business buildings",
+                                     3:"Terrapin Row and South Campus Commons "
+                                     "are located near Public Policy buildings",
+                                     4:"University View and The Varsity "
+                                     "are located near Fine arts buildings",
+                                     5:"Terrapin Row and South Campus Commons "
+                                     "are located near Architecture buildings"}
+        print(major_proximity_dictionary[major_category_input])
+        
+        
+        print(f"Let's see what most "
+              "{major_number_dictionary[major_category_input]} majors in "
+              "previous years chose as their apartment.")
+        #Visualizing historical data with seaborn
+        
+        #Filter historical database by user's specific major.
+        df_major = self.historical_df[self.historical_df["Major"] 
+                        == (major_number_dictionary[major_category_input])]
+        sns.countplot(x = "Apartment", data = df_major)
+        
+        if major_category_input == 1 or major_category_input == 4:
+            print("Between University View and The Varsity, let's see which "
+                  "apartment best fits your amenity needs.")
+            #Call checkAmentities method
+            
+            #Make this Philip's method 2, checkAmentities, which takes 
+            # major_category_input as a paramenter 
+            
+            
+            #START OF checkAmentities method:
+            user_pool=int(input("Are you looking for a pool? Type 0 for no pool or 1"  
+                        " for pool:")) 
+            #Check if University View and The Varsity have the pool (via Pandas)
+            user_gym=int(input("Are you looking for a gym? Type 0 for no gym or 1" 
+                        " for gym:"))
+            #Repeat the same process for gym and other amenities
+            
+            #At the end, print out whether University View and The Varsity has
+            # the most similar amenitites to what the user inputed.
+            
+            #END OF checkAmentities method.
+        else: 
+            print("Between Terrapin Row and South Campus Commons, let's pick one "
+                  "apartment that best fits your amenity needs.")
+            user_pool=int(input("Are you looking for a pool? Type 0 for no pool or 1"  
+                        " for pool:")) 
+            #Check if University View and The Varsity have the pool (via Pandas)
+            user_gym=int(input("Are you looking for a gym? Type 0 for no gym or 1" 
+                        " for gym:"))
+            #Repeat the same process for gym and other amenities
+            
+            #At the end, print out whether University View and The Varsity has
+            # the most similar amenitites to what the user inputed.
+             
+            
+            
+        userInputCounter += user_pool
+        user_gym=int(input("Are you looking for a gym? Type 0 for no gym or 1" 
+                        " for gym:"))
+        userInputCounter += user_gym
+        user_parking=int(input("Are you looking for parking? Type 0 for no" 
+                            " parking and 1 for parking:" ))
+        userInputCounter += user_parking
+        user_electronic_entry_locks=int(input("Do you want an apartment with an"
+                                        " electronic entry lock system? Type 0"
+                                        " for no system and 1 for a system:"  )) 
+        userInputCounter += user_electronic_entry_locks
+        user_study_rooms=int(input("Are you looking for study rooms? Type 0 for"
+                               " no study rooms and 1 for study rooms:"))
+        userInputCounter += user_study_rooms
+        user_game_lounge=int(input("Are you looking for game lounge? Type 0 for" 
+                                   " no game lounge and 1 for a game lounge:"))
+            
         #SETS         
         
         
@@ -72,21 +154,20 @@ class Apartment:
             #user_location  and apt_some_location aren't used at the moment, but
             # will be used in the future
         
-        #LOCATION QUESTION
-        user_location = input("Which part of UMD campus would be ideal for you."
-                              " Type North or South: ") 
+        #LOCATION QUESTION (take this out)
+        # user_location = input("Which part of UMD campus would be ideal for you."
+        #                       " Type North or South: ") 
     
                  
-        apt_location_dictionary = {"Terrapin Row":"South","University View":"North",
-                             "The Varsity":"North"}
+        # apt_location_dictionary = {"Terrapin Row":"South","University View":"North",
+        #                      "The Varsity":"North"}
         
-        northOrSouth = lambda user_location:"Terrapin Row" if user_location == "South" else "" 
-        
-        
-        
+        # northOrSouth = lambda user_location:"Terrapin Row" if user_location == "South" else "" 
+           
         
         
-        #AMENTITIES QUESTIONS
+        
+        #AMENTITIES QUESTIONS (put this in checkAmentities method)
         userInputCounter = 0
 
         user_pool=int(input("Are you looking for a pool? Type 0 for no pool or 1"  
@@ -109,18 +190,18 @@ class Apartment:
                                    " no game lounge and 1 for a game lounge:"))
         userInputCounter += user_game_lounge
 
-
-        terrapinRow_Amenity_Counter = 6
-        universityView_or_theVarsity_Amenity_Counter = 3
-        if userInputCounter>= terrapinRow_Amenity_Counter:
-            print("Apartment with your ideal amenities: Terrapin Row")
-        elif userInputCounter>= universityView_or_theVarsity_Amenity_Counter:
-            print("Apartments with your ideal amenities: University View and" 
-                  " The Varsity")
-        else:
-            print("None of these apartments have the amenities that you are" 
-                  " looking for.")
-        #BUDGET QUESTIONS
+        #GET RID OF THE COMMENTED CODE (OLD COUNTER LOGIC):
+        # terrapinRow_Amenity_Counter = 6
+        # universityView_or_theVarsity_Amenity_Counter = 3
+        # if userInputCounter>= terrapinRow_Amenity_Counter:
+        #     print("Apartment with your ideal amenities: Terrapin Row")
+        # elif userInputCounter>= universityView_or_theVarsity_Amenity_Counter:
+        #     print("Apartments with your ideal amenities: University View and" 
+        #           " The Varsity")
+        # else:
+        #     print("None of these apartments have the amenities that you are" 
+        #           " looking for.")
+        # BUDGET QUESTIONS
         self.user_input_budget = int(input("What is your minimum budget?")) 
 
 
