@@ -40,7 +40,7 @@ class Apartment:
 
     def userInput(self):
         #Member who worked on this method: Philip
-        #Technique used:
+        #Technique used:Visualizing data with seaborn 
         
         #INTRODUCTION
         print("Welcome to the College Park Apartment Portal! There are four "
