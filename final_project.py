@@ -22,9 +22,11 @@ class Apartment:
             #self.min_budgets = dict(zip(self.merged_data["Apartment Name"], 
             # self.merged_data["Minimum Price"]))
             
-        self.apartment_names = self.merged_data["Apartment Name"].unique()
+        self.terrapin_row, self.university_view, self.the_varsity, self.south_campus_commons = self.merged_data["Apartment Name"].unique()
         self.min_budget = {"Terrapin Row":1250, "University View":1200, 
-                           "The Varsity":1104}      
+                           "The Varsity":1104, "South Campus Commons":1016} 
+        
+             
        
         # Initialize user attributes to None
         self.user_name = None
@@ -38,6 +40,8 @@ class Apartment:
         self.user_game_lounge = None
         self.user_input_budget=None 
 
+    
+    
     def userInput(self):
         #Member who worked on this method: Philip
         #Technique used:Visualizing data with seaborn 
@@ -70,6 +74,11 @@ class Apartment:
         
         major_number_dictionary = {1:"STEM",2:"Business", 3:"Public Policy",
                                      4:"Fine Arts",5:"Architecture"}
+        major_campus_dictionary = {1: ["University View","The Varsity"],
+                                   2:["Terrapin Row","South Campus Commons"],
+                                   3: ["Terrapin Row","South Campus Commons"],
+                                   4:["University View","The Varsity"],
+                                   5:["Terrapin Row","South Campus Commons"]}
         
         major_proximity_dictionary = {1:"University View and The Varsity "
                                      "are located near STEM buildings",
@@ -97,31 +106,61 @@ class Apartment:
         if major_category_input == 1 or major_category_input == 4:
             print("Between University View and The Varsity, let's see which "
                   "apartment best fits your amenity needs.")
-            #Call checkAmentities method
+        else: 
+            print("Between Terrapin Row and South Campus Commons, let's pick one "
+                  "apartment that best fits your amenity needs.")   
             
-            #Make this Philip's method 2, checkAmentities, which takes 
-            # major_category_input as a paramenter 
-            
-            
-            #START OF checkAmentities method:
-            user_pool=int(input("Are you looking for a pool? Type 0 for no pool or 1"  
-                        " for pool:")) 
-            #Check if University View and The Varsity have the pool (via Pandas)
-            user_gym=int(input("Are you looking for a gym? Type 0 for no gym or 1" 
+        #The two apartments in the side of campus where the user's classes 
+        # for major are.
+        apartment1 = major_campus_dictionary[major_category_input][0]
+        apartment2 = major_campus_dictionary[major_category_input][1]
+         
+        #Amenities questions (make this its own method in the future)
+            #Pool question and check
+        user_pool=int(input("Are you looking for a pool? Type 0 for no pool or 1"  
+                        " for pool:"))
+        apartment1_pool = self.amenities_df.loc[self.amenities_df ['Apartment Name'] == apartment1, 'Pool'].values[0]
+        apartment2_pool = self.amenities_df.loc[self.amenities_df ['Apartment Name'] == apartment2, 'Pool'].values[0]
+        
+        if apartment1_pool == 1:
+            print(f"{apartment1} has a pool.")
+        else:
+            print(f"{apartment1} does not have a pool.")
+
+        if apartment2_pool == 1:
+            print(f"{apartment2} has a pool.")
+        else:
+            print(f"{apartment2} does not have a pool.")        
+        
+            #Gym question and check
+        user_gym=int(input("Are you looking for a gym? Type 0 for no gym or 1" 
                         " for gym:"))
-            #Repeat the same process for gym and other amenities
+        apartment1_gym = self.amenities_df.loc[self.amenities_df ['Apartment Name'] == apartment1, 'Gym'].values[0]
+        apartment2_gym = self.amenities_df.loc[self.amenities_df ['Apartment Name'] == apartment2, 'Gym'].values[0]
+        
+        if apartment1_gym == 1:
+            print(f"{apartment1} has a gym.")
+        else:
+            print(f"{apartment1} does not have a gym.")
+
+        if apartment2_pool == 1:
+            print(f"{apartment2} has a gym.")
+        else:
+            print(f"{apartment2} does not have a pool.")
+        
+        
+        
+        #Repeat the same process for gym and other amenities
             
             #At the end, print out whether University View and The Varsity has
             # the most similar amenitites to what the user inputed.
             
             #END OF checkAmentities method.
-        else: 
-            print("Between Terrapin Row and South Campus Commons, let's pick one "
-                  "apartment that best fits your amenity needs.")
-            user_pool=int(input("Are you looking for a pool? Type 0 for no pool or 1"  
+        
+        user_pool=int(input("Are you looking for a pool? Type 0 for no pool or 1"  
                         " for pool:")) 
             #Check if University View and The Varsity have the pool (via Pandas)
-            user_gym=int(input("Are you looking for a gym? Type 0 for no gym or 1" 
+        user_gym=int(input("Are you looking for a gym? Type 0 for no gym or 1" 
                         " for gym:"))
             #Repeat the same process for gym and other amenities
             
