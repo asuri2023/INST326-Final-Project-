@@ -26,6 +26,11 @@ class Apartment:
         self.terrapin_row, self.university_view, self.the_varsity, self.south_campus_commons = self.merged_data["Apartment Name"].unique()
         self.min_budget = {"Terrapin Row":1250, "University View":1200, 
                            "The Varsity":1104, "South Campus Commons":1016} 
+        self.major_campus_dictionary=  {1: ["University View","The Varsity"],
+                                   2:["Terrapin Row","South Campus Commons"],
+                                   3: ["Terrapin Row","South Campus Commons"],
+                                   4:["University View","The Varsity"],
+                                   5:["Terrapin Row","South Campus Commons"]}
         
              
        
@@ -39,7 +44,9 @@ class Apartment:
         self.user_electronic_entry_locks = None
         self.user_study_rooms = None
         self.user_game_lounge = None
-        self.user_input_budget=None 
+        self.user_input_budget=None  
+        self.major_category_input=None 
+        
 
     def amenityCheck(self,apartment1,apartment2,amenity):
         #Member who worked on this method: Philip
@@ -79,7 +86,7 @@ class Apartment:
         user_name = input("Please enter your full name:")
         
         #MAJOR CATEGORIES
-        major_category_input = int(input("Which one of the following categories "
+        self.major_category_input = int(input("Which one of the following categories "
                                      "would your major fall under?\n"
           "Type 1 for STEM (Classes in North campus)\n"
           "Type 2 for Business (Classes in South campus)\n"
@@ -89,11 +96,7 @@ class Apartment:
         
         major_number_dictionary = {1:"STEM",2:"Business", 3:"Public Policy",
                                      4:"Fine Arts",5:"Architecture"}
-        major_campus_dictionary = {1: ["University View","The Varsity"],
-                                   2:["Terrapin Row","South Campus Commons"],
-                                   3: ["Terrapin Row","South Campus Commons"],
-                                   4:["University View","The Varsity"],
-                                   5:["Terrapin Row","South Campus Commons"]}
+        
         
         major_proximity_dictionary = {1:"University View and The Varsity "
                                      "are located near STEM buildings",
@@ -105,21 +108,21 @@ class Apartment:
                                      "are located near Fine arts buildings",
                                      5:"Terrapin Row and South Campus Commons "
                                      "are located near Architecture buildings"}
-        print(major_proximity_dictionary[major_category_input])
+        print(major_proximity_dictionary[self.major_category_input])
         
         
         print(f"Let's see what most "
-              f"{major_number_dictionary[major_category_input]} majors in "
+              f"{major_number_dictionary[self.major_category_input]} majors in "
               f"previous years chose as their apartment.")
         #Visualizing historical data with seaborn
         
         #Filter historical database by user's specific major.
         df_major = self.historical_df[self.historical_df["Major"] 
-                        == (major_number_dictionary[major_category_input])]
+                        == (major_number_dictionary[self.major_category_input])]
         sns.countplot(x = "Apartment", data = df_major)
         plt.show()
         
-        if major_category_input == 1 or major_category_input == 4:
+        if self.major_category_input == 1 or self.major_category_input == 4:
             print("Between University View and The Varsity, let's see which "
                   "apartment best fits your amenity needs.")
         else: 
@@ -128,8 +131,8 @@ class Apartment:
             
         #The two apartments in the side of campus where the user's classes 
         # for major are.
-        apartment1 = major_campus_dictionary[major_category_input][0]
-        apartment2 = major_campus_dictionary[major_category_input][1]
+        apartment1 = self.major_campus_dictionary[self.major_category_input][0]
+        apartment2 = self.major_campus_dictionary[self.major_category_input][1]
          
         #Amenities questions (make this its own method in the future)
             #'Pool' question and check
