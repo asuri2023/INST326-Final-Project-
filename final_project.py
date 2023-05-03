@@ -108,8 +108,8 @@ class Apartment:
         
         
         print(f"Let's see what most "
-              "{major_number_dictionary[major_category_input]} majors in "
-              "previous years chose as their apartment.")
+              f"{major_number_dictionary[major_category_input]} majors in "
+              f"previous years chose as their apartment.")
         #Visualizing historical data with seaborn
         
         #Filter historical database by user's specific major.
