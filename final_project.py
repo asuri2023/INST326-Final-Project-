@@ -6,7 +6,7 @@ class Apartment:
     
     def __init__(self):
         #Member who worked on this method: Avi
-        #Technique used: Merging operation on Pandas DataFrames
+        #Technique used: Sequence unpacking
         
         # Read the CSV files
         self.apartments_df = pd.read_csv(r"CP Apartments_Version3.csv")
@@ -26,6 +26,8 @@ class Apartment:
         self.terrapin_row, self.university_view, self.the_varsity, self.south_campus_commons = self.merged_data["Apartment Name"].unique()
         self.min_budget = {"Terrapin Row":1250, "University View":1200, 
                            "The Varsity":1104, "South Campus Commons":1016} 
+        
+        
         self.major_campus_dictionary=  {1: ["University View","The Varsity"],
                                    2:["Terrapin Row","South Campus Commons"],
                                    3: ["Terrapin Row","South Campus Commons"],
@@ -46,23 +48,76 @@ class Apartment:
         self.user_game_lounge = None
         self.user_input_budget=None  
         self.major_category_input=None
+        self.apartment1=None
+        self.apartment2=None
         
 
-    def amenityCheck(self,apartment1,apartment2,amenity):
+    def amenityCheck(self,apt1,apt2,amenity):
         #Member who worked on this method: Philip
-        #Technique used: 
-        apartment1_amenity = self.amenities_df.loc[self.amenities_df ['Apartment Name'] == apartment1, amenity].values[0]
-        apartment2_amenity = self.amenities_df.loc[self.amenities_df ['Apartment Name'] == apartment2, amenity].values[0]
+        #Technique used: Filtering operation on Pandas DataFrames
+        apartment1_amenity = self.amenities_df.loc[self.amenities_df ['Apartment Name'] == apt1, amenity].values[0]
+        apartment2_amenity = self.amenities_df.loc[self.amenities_df ['Apartment Name'] == apt2, amenity].values[0]
         
         if apartment1_amenity == 1:
-            print(f"{apartment1} has a {amenity}.")
+            print(f"{apt1} has a {amenity}.")
         else:
-            print(f"{apartment1} does not have a {amenity}.")
+            print(f"{apt1} does not have a {amenity}.")
 
         if apartment2_amenity == 1:
-            print(f"{apartment2} has a {amenity}.")
+            print(f"{apt2} has a {amenity}.")
         else:
-            print(f"{apartment2} does not have a {amenity}.")     
+            print(f"{apt2} does not have a {amenity}.")  
+            
+            
+    def userBudget(self, someUserBudget, apt1, apt2):
+        #Member who worked on this method: Shishir
+        #Technique used: List comprehension
+        apt1_minBudget=self.min_budget[apt1]
+        apt2_minBudget=self.min_budget[apt2]
+        
+        aptAndMinBudget=[apt1_minBudget,apt2_minBudget]
+        cheapest_apt_value=min(aptAndMinBudget)
+        #list comprehension: used to reverse keys and values of a dict in order to display the name of the cheapest apt
+        reversed_minBudget={value: key for key, value in self.min_budget.items()}
+        name_of_cheapest_apt = reversed_minBudget[cheapest_apt_value]
+        
+        if someUserBudget >= apt1_minBudget and someUserBudget >=apt2_minBudget:
+            print(f"You can afford the minimum monthly rent at both {apt1} and {apt2}.")
+            print(f"The cheapest apartment on your side of campus is {name_of_cheapest_apt} (${cheapest_apt_value}).")
+        elif someUserBudget >= apt1_minBudget:
+            print(f"You can afford the monthly rent at {apt1} only.")
+        elif someUserBudget >= apt2_minBudget:
+            print(f"You can afford the monthly rent at {apt2} only.")
+        else:
+            print(f"You cannot afford the minimum monthly rent at either apartments.")
+        
+        # matching_apartments = [key for key in self.min_budget if 
+        #                        self.min_budget[key] <= self.user_input_budget]
+        # if not matching_apartments:
+        #     raise ValueError("Your budget does not meet the minimum budget" 
+        #                      " for any of the apartments")
+        # elif self.user_input_budget >= self.min_budget["Terrapin Row"]:
+        #     print (f'Your budget satisfies the minimum budget of all the'
+        #            ' apartments:' 
+        # f' Terrapin Row:({self.min_budget["Terrapin Row"]}), University View:' 
+        # f' ({self.min_budget["University View"]}), and The Varsity:' 
+        # f' ({self.min_budget["The Varsity"]})')
+        # elif self.user_input_budget >= self.min_budget["University View"]:
+        #     print (f'You meet the minimum budget of University View:'
+        #     f' {self.min_budget["University View"]}')
+        # else:
+        #     print (f'You meet the minimum budget of The Varsity:' 
+        #     f'{self.min_budget["The Varsity"]}')
+            
+        #STEP 2 :CALCULATE ADDITIONAL EXPENSES (EXPENSES THE MONTHLY RENT DOES NOT COVER)
+       # Additional expenses:
+         
+      
+       #STEP 3 :DOES USER HAVE ENOUGH MONEY TO PAY RENT FOR THEIR DURATION (FULL YEAR OR HALF A YEAR) OF STAY
+       
+        # Will be used in the future:
+            #return cheapest_apt
+            #Or find a way to use cheapest_apt later in this program.   
     
     def userInput(self):
         #Member who worked on this method: Philip
@@ -131,77 +186,47 @@ class Apartment:
             
         #The two apartments in the side of campus where the user's classes 
         # for major are.
-        apartment1 = self.major_campus_dictionary[self.major_category_input][0]
-        apartment2 = self.major_campus_dictionary[self.major_category_input][1]
+        self.apartment1 = self.major_campus_dictionary[self.major_category_input][0]
+        self.apartment2 = self.major_campus_dictionary[self.major_category_input][1]
          
         #Amenities questions (make this its own method in the future)
             #'Pool' question and check
         user_pool=int(input("Are you looking for a pool? Type 0 for no pool or 1"  
                         " for pool:"))
-        self.amenityCheck(apartment1,apartment2, 'Pool')
+        self.amenityCheck(self.apartment1,self.apartment2, 'Pool')
         
             #'Gym'question and check
         user_gym=int(input("Are you looking for a gym? Type 0 for no gym or 1" 
                         " for gym:"))
-        self.amenityCheck(apartment1,apartment2, 'Gym')
+        self.amenityCheck(self.apartment1,self.apartment2, 'Gym')
         
             #'Parking' question and check
         user_parking=int(input("Are you looking for parking? Type 0 for no" 
                             " parking and 1 for parking:" ))
-        self.amenityCheck(apartment1,apartment2, 'Parking')
+        self.amenityCheck(self.apartment1,self.apartment2, 'Parking')
             
             #'Electronic Key Locks' question and check
         user_electronic_entry_locks=int(input("Do you want an apartment with an"
                                         " electronic entry lock system? Type 0"
                                         " for no system and 1 for a system:"  )) 
-        self.amenityCheck(apartment1,apartment2, 'Electronic Key Locks')
+        self.amenityCheck(self.apartment1,self.apartment2, 'Electronic Key Locks')
         
             #'Study Rooms' question and check
         user_study_rooms=int(input("Are you looking for study rooms? Type 0 for"
                                " no study rooms and 1 for study rooms:"))
-        self.amenityCheck(apartment1,apartment2, 'Study Rooms')
+        self.amenityCheck(self.apartment1,self.apartment2, 'Study Rooms')
             
             #'Game Lounge' question and check
         
         user_game_lounge=int(input("Are you looking for game lounge? Type 0 for" 
                                    " no game lounge and 1 for a game lounge:"))
-        self.amenityCheck(apartment1,apartment2, 'Game Lounge')
+        self.amenityCheck(self.apartment1,self.apartment2, 'Game Lounge')
     
         # BUDGET QUESTIONS
         self.user_input_budget = int(input("What is your minimum budget?")) 
+        self.userBudget(self.user_input_budget, self.apartment1, self.apartment2)
 
-    def userBudget(self):
-        #Member who worked on this method: Shishir
-        #Technique used: List comprehension
-
-        cheapest_apt=min(self.min_budget.values())
-        matching_apartments = [key for key in self.min_budget if 
-                               self.min_budget[key] <= self.user_input_budget]
-        if not matching_apartments:
-            raise ValueError("Your budget does not meet the minimum budget" 
-                             " for any of the apartments")
-        elif self.user_input_budget >= self.min_budget["Terrapin Row"]:
-            print (f'Your budget satisfies the minimum budget of all the'
-                   ' apartments:' 
-        f' Terrapin Row:({self.min_budget["Terrapin Row"]}), University View:' 
-        f' ({self.min_budget["University View"]}), and The Varsity:' 
-        f' ({self.min_budget["The Varsity"]})')
-        elif self.user_input_budget >= self.min_budget["University View"]:
-            print (f'You meet the minimum budget of University View:'
-            f' {self.min_budget["University View"]}')
-        else:
-            print (f'You meet the minimum budget of The Varsity:' 
-            f'{self.min_budget["The Varsity"]}')
-            
-        #STEP 2 :CALCULATE ADDITIONAL EXPENSES (EXPENSES THE MONTHLY RENT DOES NOT COVER)
-       # Additional expenses:
-         
-      
-       #STEP 3 :DOES USER HAVE ENOUGH MONEY TO PAY RENT FOR THEIR DURATION (FULL YEAR OR HALF A YEAR) OF STAY
-       
-        # Will be used in the future:
-            #return cheapest_apt
-            #Or find a way to use cheapest_apt later in this program.
+    
 
 
         
