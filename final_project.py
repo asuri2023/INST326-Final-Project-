@@ -45,7 +45,7 @@ class Apartment:
         self.user_study_rooms = None
         self.user_game_lounge = None
         self.user_input_budget=None  
-        self.major_category_input=None 
+        self.major_category_input=None
         
 
     def amenityCheck(self,apartment1,apartment2,amenity):
