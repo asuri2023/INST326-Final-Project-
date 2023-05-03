@@ -1,5 +1,6 @@
 import pandas as pd
 import seaborn as sns
+from matplotlib import pyplot as plt
 
 class Apartment:
     
@@ -116,6 +117,7 @@ class Apartment:
         df_major = self.historical_df[self.historical_df["Major"] 
                         == (major_number_dictionary[major_category_input])]
         sns.countplot(x = "Apartment", data = df_major)
+        plt.show()
         
         if major_category_input == 1 or major_category_input == 4:
             print("Between University View and The Varsity, let's see which "
@@ -167,7 +169,7 @@ class Apartment:
 
     def userBudget(self):
         #Member who worked on this method: Shishir
-        #Technique used: 
+        #Technique used: List comprehension
 
         cheapest_apt=min(self.min_budget.values())
         matching_apartments = [key for key in self.min_budget if 
@@ -258,13 +260,14 @@ class Apartment:
             #return True
 
 #We will implement this main method in the future.
-#def main():
-    #apt = Apartment()
+def main():
+    apt = Apartment()
     
-    #apt.userInput()
+    apt.userInput()
+    apt.userBudget()
     
-#if __name__=='__main__':
-    #main()
+if __name__=='__main__':
+    main()
 
         
 
