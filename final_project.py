@@ -119,6 +119,90 @@ class Apartment:
             #return cheapest_apt
             #Or find a way to use cheapest_apt later in this program.   
     
+     def check_eligibility(self):
+        """
+        Check if user meets all the proper documentation for leasing.
+
+        Args:
+        - identity_proof: string, proof of identity (e.g. driver's license, 
+            passport)
+        - income_proof: string, proof of income (e.g. pay stub, 
+            bank statement)
+        - residency_proof: string, proof of current residency (e.g. utility 
+            bill, lease agreement)
+        - insurance_proof: string, proof of insurance (e.g. auto insurance, 
+            renters insurance)
+
+        Returns:
+        - eligible: boolean, True if user meets all the proper documentation, 
+            False otherwise
+        """
+        #Member who worked on this method: Jhemel
+        #Technique used:
+        
+        if self.user_name == "Bob Johnson":
+                      
+            with open("Bob_eligibilty.txt", "r",encoding = "utf-8") as f:
+                yes_count = 0
+                for line in f:
+                    response = line
+
+                    if response.lower() = "yes" or response.lower() = "yes":
+                        yes_count += 1
+
+                    if yes = 2:
+                        print("Yes you are eligible")
+                    else:
+                        print("not eligible")
+                    
+                
+
+        # else:
+            
+        #     with open("Mary_eligibilty.txt", "r",encoding = "utf-8") as f:
+        #         for line in f: 
+            
+        
+
+
+            
+        
+        identity_proof = int(input("Do you have proof of identity" 
+            " (e.g. driver's license, passport) ? Type 0 for no, 1 for yes:")) 
+        income_proof = int(input("Do you have proof of income (e.g. pay stub," 
+                                " bank statement) ? Type 0 for no, 1 for yes:")) 
+        residency_proof = int(input("Do you have proof of current residency" 
+        " (e.g. utility bill, lease agreement) ? Type 0 for no, 1 for yes:")) 
+        insurance_proof = int(input("Do you have proof of insurance (e.g. auto" 
+                " insurance, renters insurance) ? Type 0 for no, 1 for yes:"))                
+       
+        # Check if all proofs of documentation are provided
+        if (identity_proof == 1 and income_proof == 1 and residency_proof == 1 
+            and insurance_proof == 1):
+            return("You have all the required documentation to live in" 
+                   " these apartments")
+            
+        else:
+            return("Please provide all the required documentation.")
+        
+        # Will be used in the future:
+            # Check if the user meets the minimum income requirement
+            #min_income_requirement = 30000  # set a minimum income requirement of $30,000
+            #if income_proof < min_income_requirement:
+                
+                #print("Your income does not meet the minimum requirement.")
+                #return False
+            
+            # Check if the residency proof is current
+            # You could implement this check by comparing the date on the residency_proof to today's date
+            
+            # Check if the insurance proof is valid
+            # You could implement this check by verifying that the insurance policy is currently active
+            
+            # If all checks pass, the user is eligible
+            #print("Congratulations, you are eligible to lease!")
+            #return True
+
     def userInput(self):
         #Member who worked on this method: Philip
         #Technique used:Visualizing data with seaborn 
@@ -138,7 +222,7 @@ class Apartment:
         print("University View and The Varsity are located in North campus.")
         print("Answer some questions to find your ideal apartment!")
 
-        user_name = input("Please enter your full name:")
+        self.user_name = input("Please enter your full name:")
         
         #MAJOR CATEGORIES
         self.major_category_input = int(input("Which one of the following categories "
@@ -230,62 +314,7 @@ class Apartment:
 
 
         
-    def check_eligibility(self):
-        """
-        Check if user meets all the proper documentation for leasing.
-
-        Args:
-        - identity_proof: string, proof of identity (e.g. driver's license, 
-            passport)
-        - income_proof: string, proof of income (e.g. pay stub, 
-            bank statement)
-        - residency_proof: string, proof of current residency (e.g. utility 
-            bill, lease agreement)
-        - insurance_proof: string, proof of insurance (e.g. auto insurance, 
-            renters insurance)
-
-        Returns:
-        - eligible: boolean, True if user meets all the proper documentation, 
-            False otherwise
-        """
-        #Member who worked on this method: Jhemel
-        #Technique used:
-        
-        identity_proof = int(input("Do you have proof of identity" 
-            " (e.g. driver's license, passport) ? Type 0 for no, 1 for yes:")) 
-        income_proof = int(input("Do you have proof of income (e.g. pay stub," 
-                                " bank statement) ? Type 0 for no, 1 for yes:")) 
-        residency_proof = int(input("Do you have proof of current residency" 
-        " (e.g. utility bill, lease agreement) ? Type 0 for no, 1 for yes:")) 
-        insurance_proof = int(input("Do you have proof of insurance (e.g. auto" 
-                " insurance, renters insurance) ? Type 0 for no, 1 for yes:"))                
-       
-        # Check if all proofs of documentation are provided
-        if (identity_proof == 1 and income_proof == 1 and residency_proof == 1 
-            and insurance_proof == 1):
-            return("You have all the required documentation to live in" 
-                   " these apartments")
-            
-        else:
-            return("Please provide all the required documentation.")
-        
-        # Will be used in the future:
-            # Check if the user meets the minimum income requirement
-            #min_income_requirement = 30000  # set a minimum income requirement of $30,000
-            #if income_proof < min_income_requirement:
-                
-                #print("Your income does not meet the minimum requirement.")
-                #return False
-            
-            # Check if the residency proof is current
-            # You could implement this check by comparing the date on the residency_proof to today's date
-            
-            # Check if the insurance proof is valid
-            # You could implement this check by verifying that the insurance policy is currently active
-            
-            # If all checks pass, the user is eligible
-            #print("Congratulations, you are eligible to lease!")
-            #return True
+   
 
 #We will implement this main method in the future.
 def main():
