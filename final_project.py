@@ -119,7 +119,7 @@ class Apartment:
             #return cheapest_apt
             #Or find a way to use cheapest_apt later in this program.   
     
-     def check_eligibility(self):
+    def check_eligibility(self):
         """
         Check if user meets all the proper documentation for leasing.
 
@@ -138,52 +138,36 @@ class Apartment:
             False otherwise
         """
         #Member who worked on this method: Jhemel
-        #Technique used:
+        #Technique used: with statement
         
         if self.user_name == "Bob Johnson":
-                      
-            with open("Bob_eligibilty.txt", "r",encoding = "utf-8") as f:
-                yes_count = 0
+            yes_count_Bob = 0
+               
+            with open("Bob_eligibility.txt", "r",encoding = "utf-8") as f:
                 for line in f:
-                    response = line
+                    response = line.strip().split(":")[-1].strip().lower()
+                    if response == "yes":  
+                        yes_count_Bob += 1
 
-                    if response.lower() = "yes" or response.lower() = "yes":
-                        yes_count += 1
-
-                    if yes = 2:
-                        print("Yes you are eligible")
-                    else:
-                        print("not eligible")
+            if yes_count_Bob >= 2:
+                print("Yes you are eligible")
+            else:
+                print("not eligible")
                     
-                
-
-        # else:
-            
-        #     with open("Mary_eligibilty.txt", "r",encoding = "utf-8") as f:
-        #         for line in f: 
-            
-        
-
-
-            
-        
-        identity_proof = int(input("Do you have proof of identity" 
-            " (e.g. driver's license, passport) ? Type 0 for no, 1 for yes:")) 
-        income_proof = int(input("Do you have proof of income (e.g. pay stub," 
-                                " bank statement) ? Type 0 for no, 1 for yes:")) 
-        residency_proof = int(input("Do you have proof of current residency" 
-        " (e.g. utility bill, lease agreement) ? Type 0 for no, 1 for yes:")) 
-        insurance_proof = int(input("Do you have proof of insurance (e.g. auto" 
-                " insurance, renters insurance) ? Type 0 for no, 1 for yes:"))                
-       
-        # Check if all proofs of documentation are provided
-        if (identity_proof == 1 and income_proof == 1 and residency_proof == 1 
-            and insurance_proof == 1):
-            return("You have all the required documentation to live in" 
-                   " these apartments")
-            
         else:
-            return("Please provide all the required documentation.")
+            yes_count_Mary = 0  
+            
+            with open("Mary_eligibility.txt", "r",encoding = "utf-8") as f:
+                for line in f:
+                    response = line.strip().split(":")[-1].strip().lower()
+                    if response == "yes":  
+                        yes_count_Mary += 1
+
+            if yes_count_Mary >= 2:
+                print("Yes you are eligible")
+            else:
+                print("not eligible")
+            
         
         # Will be used in the future:
             # Check if the user meets the minimum income requirement
@@ -223,6 +207,12 @@ class Apartment:
         print("Answer some questions to find your ideal apartment!")
 
         self.user_name = input("Please enter your full name:")
+        
+        print(f"Hi {self.user_name}! In order to proceed with the rest of "
+              "the College Park Apartment Portal, we have to check if you "
+              "meet all the eligibility requirements.")
+        self.check_eligibility()
+        
         
         #MAJOR CATEGORIES
         self.major_category_input = int(input("Which one of the following categories "
@@ -321,7 +311,7 @@ def main():
     apt = Apartment()
     
     apt.userInput()
-    apt.userBudget()
+    
     
 if __name__=='__main__':
     main()

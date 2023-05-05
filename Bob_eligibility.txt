@@ -1,4 +1,3 @@
-Driver's License:Yes
-Passport:No
-Pay Stub:Yes
-Bank Statement:No
+Driver's License or Passport:Yes
+Pay Stub or Bank Statement:Yes
+
