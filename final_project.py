@@ -192,36 +192,31 @@ class Apartment:
         #Technique used:Visualizing data with seaborn 
         
         #INTRODUCTION
-        print("Welcome to the College Park Apartment Portal! There are four "
-              "apartments to choose from: Terrapin Row, University View, " 
-              "The Varsity, and South Campus Commons.")
-        print("The University of Maryland, College Park is divided into "
-              "North and South campus, with Mckeldin Mall being the division "
-              "line.")
-        print("Facing the front of Mckeldin Library, any land to the right of "
-              "the library is North and any land to the left of the library is "
-              "South.")
-        print("Terrapin Row and South Campus Commons are located in "
+        print("Welcome to the College Park Apartment Portal!\n \nThere are four "
+              "apartments for you to choose from in the College Park Area:"
+              "\n Terrapin Row, \n University View, " 
+              "\n The Varsity, and \n South Campus Commons.")
+        print("\nTerrapin Row and South Campus Commons are located in "
               "South campus.")
-        print("University View and The Varsity are located in North campus.")
-        print("Answer some questions to find your ideal apartment!")
+        print("\nUniversity View and The Varsity are located in North campus.")
+        print("\nAnswer some questions to find your ideal apartment!")
 
-        self.user_name = input("Please enter your full name:")
+        self.user_name = input("\nPlease enter your full name:")
         
-        print(f"Hi {self.user_name}! In order to proceed with the rest of "
-              "the College Park Apartment Portal, we have to check if you "
+        print(f"\nHi {self.user_name}! In order to proceed with the rest of "
+              "the College Park Apartment Portal, \nwe have to check if you "
               "meet all the eligibility requirements.")
         self.check_eligibility()
         
         
         #MAJOR CATEGORIES
-        self.major_category_input = int(input("Which one of the following categories "
+        self.major_category_input = int(input("\nWhich one of the following categories "
                                      "would your major fall under?\n"
           "Type 1 for STEM (Classes in North campus)\n"
           "Type 2 for Business (Classes in South campus)\n"
           "Type 3 for Public Policy (Classes in South campus)\n"
           "Type 4 for Fine Arts (Classes in North campus)\n"
-          "Type 5 for Architecture (South campus)"))
+          "Type 5 for Architecture (South campus)\n"))
         
         major_number_dictionary = {1:"STEM",2:"Business", 3:"Public Policy",
                                      4:"Fine Arts",5:"Architecture"}
@@ -240,9 +235,9 @@ class Apartment:
         print(major_proximity_dictionary[self.major_category_input])
         
         
-        print(f"Let's see what most "
+        print(f"\nLet's see what most "
               f"{major_number_dictionary[self.major_category_input]} majors in "
-              f"previous years chose as their apartment.")
+              f"previous years chose as their apartment.\n")
         #Visualizing historical data with seaborn
         
         #Filter historical database by user's specific major.
@@ -252,10 +247,10 @@ class Apartment:
         plt.show()
         
         if self.major_category_input == 1 or self.major_category_input == 4:
-            print("Between University View and The Varsity, let's see which "
+            print("\nBetween University View and The Varsity, let's see which "
                   "apartment best fits your amenity needs.")
         else: 
-            print("Between Terrapin Row and South Campus Commons, let's pick one "
+            print("\nBetween Terrapin Row and South Campus Commons, let's pick one "
                   "apartment that best fits your amenity needs.")   
             
         #The two apartments in the side of campus where the user's classes 
@@ -265,39 +260,39 @@ class Apartment:
          
         #Amenities questions (make this its own method in the future)
             #'Pool' question and check
-        user_pool=int(input("Are you looking for a pool? Type 0 for no pool or 1"  
+        user_pool=int(input("\nAre you looking for a pool? Type 0 for no pool or 1"  
                         " for pool:"))
         self.amenityCheck(self.apartment1,self.apartment2, 'Pool')
         
             #'Gym'question and check
-        user_gym=int(input("Are you looking for a gym? Type 0 for no gym or 1" 
+        user_gym=int(input("\nAre you looking for a gym? Type 0 for no gym or 1" 
                         " for gym:"))
         self.amenityCheck(self.apartment1,self.apartment2, 'Gym')
         
             #'Parking' question and check
-        user_parking=int(input("Are you looking for parking? Type 0 for no" 
+        user_parking=int(input("\nAre you looking for parking? Type 0 for no" 
                             " parking and 1 for parking:" ))
         self.amenityCheck(self.apartment1,self.apartment2, 'Parking')
             
             #'Electronic Key Locks' question and check
-        user_electronic_entry_locks=int(input("Do you want an apartment with an"
+        user_electronic_entry_locks=int(input("\nDo you want an apartment with an"
                                         " electronic entry lock system? Type 0"
                                         " for no system and 1 for a system:"  )) 
         self.amenityCheck(self.apartment1,self.apartment2, 'Electronic Key Locks')
         
             #'Study Rooms' question and check
-        user_study_rooms=int(input("Are you looking for study rooms? Type 0 for"
+        user_study_rooms=int(input("\nAre you looking for study rooms? Type 0 for"
                                " no study rooms and 1 for study rooms:"))
         self.amenityCheck(self.apartment1,self.apartment2, 'Study Rooms')
             
             #'Game Lounge' question and check
         
-        user_game_lounge=int(input("Are you looking for game lounge? Type 0 for" 
+        user_game_lounge=int(input("\nAre you looking for game lounge? Type 0 for" 
                                    " no game lounge and 1 for a game lounge:"))
         self.amenityCheck(self.apartment1,self.apartment2, 'Game Lounge')
     
         # BUDGET QUESTIONS
-        self.user_input_budget = int(input("What is your minimum budget?")) 
+        self.user_input_budget = int(input("\nWhat is your minimum budget?")) 
         self.userBudget(self.user_input_budget, self.apartment1, self.apartment2)
 
     
