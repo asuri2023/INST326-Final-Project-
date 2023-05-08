@@ -51,6 +51,11 @@ class Apartment:
         self.apartment1=None
         self.apartment2=None
         
+        # User's chosen apartment attributes
+        self.chosen_apartment=None
+        self.num_people=None
+        self.chosen_apartment_budget=None
+        
 
     def amenityCheck(self,apt1,apt2,amenity):
         #Member who worked on this method: Philip
@@ -328,6 +333,35 @@ class Apartment:
         self.user_input_budget = int(input("\nWhat is your minimum budget?")) 
         self.userBudget(self.user_input_budget, self.apartment1, self.apartment2)
 
+        # APARTMENT SUMMARY (do this later)
+        # State the amenities available at apt1 and apt2.
+        # Restate the cheapest apt
+        
+        # PICK ONE APARTMENT
+        self.chosen_apartment = input(f"Between {self.apartment1} and " 
+                                     f"{self.apartment2}, \nplease write down "  
+                                     f"the apartment you prefer to stay in "
+                                     f"based on your preferences:\n")
+        if self.chosen_apartment == self.apartment1:
+            self.chosen_apartment = self.apartment1
+            return self.chosen_apartment
+        else:
+            self.chosen_apartment = self.apartment2
+            return self.chosen_apartment
+        otherTenants = (input("\nf{self.user_name}, are you looking "
+                                    f"to move into {self.chosen_apartment} "
+                                    f"with other tenants? (y/n)"))
+        if otherTenants == "y":
+            self.num_people = (input("\nHow many tenants are moving in "
+                                     "with you? 1,2,3,or 4?"))
+            self.chosen_apartment_budget = self.min_budget[self.chosen_apartment]
+            find_shared_group_apartment(self.num_people, self.chosen_apartment, self.chosen_apartment_budget)
+        else:
+            print("That's it!")
+         
+        
+        
+        
     
 
 
