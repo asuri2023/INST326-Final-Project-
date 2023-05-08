@@ -186,6 +186,39 @@ class Apartment:
             # If all checks pass, the user is eligible
             #print("Congratulations, you are eligible to lease!")
             #return True
+    
+    # def find_shared_group_apartment(num_people, location, budget):
+    # #Techniques used: List Comprehension
+    # #Member who worked on this method: Jhemel
+    # """
+    # Finds apartments that can accommodate a group of people with the given criteria.
+
+    # Args:
+    # - num_people (int): The number of people who want to live together in the apartment.
+    # - location (str): The desired location for the apartment.
+    # - budget (float): The maximum amount the group is willing to spend per month.
+
+    # Returns:
+    # - A list of apartments that meet the given criteria.
+    # """
+    # # Assume we have a list of available apartments with their details
+    # available_apartments = [
+    #     {"location": "South Campus Commons", "bedrooms": 2, "price": 1128},
+    #     {"location": "University View", "bedrooms": 2, "price": 1400},
+    #     {"location": "Terrapin Row", "bedrooms": 2, "price": 1250},
+    #     {"location": "The Varsity", "bedrooms": 4, "price": 1400},
+        
+    # ]
+
+    # # Filter apartments that match the criteria
+    # matching_apartments = []
+    # for apartment in available_apartments:
+    #     if apartment["location"] == location and apartment["bedrooms"] >= num_bedrooms:
+
+    # #Filter apartments that match the criteria using list comprehension and conditional statement
+    # matching_apartments = [apartment for apartment in available_apartments if apartment["location"]] == location and apartment["bedrooms"] >= num_bedrooms and apartment["price"] / apartment["bedrooms"] <= budget / num_people
+
+    # return matching_apartments
 
     def userInput(self):
         #Member who worked on this method: Philip
