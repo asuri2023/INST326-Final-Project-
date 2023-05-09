@@ -192,38 +192,36 @@ class Apartment:
             #print("Congratulations, you are eligible to lease!")
             #return True
     
-    # def find_shared_group_apartment(num_people, location, budget):
-    # #Techniques used: List Comprehension
+    def find_shared_group_apartment(self, num_people, some_apartment, budget):
+        """
+        Finds apartments that can accommodate a group of people with the given criteria.
+
+        Args:
+        - num_people (int): The number of people who want to live together in the apartment.
+        - some_apartment (str): The apartment chosen by the user.
+        - budget (float): The monthly rent per person in the group for the chosen apartment.
+        Returns:
+        - A list of apartments that meet the given criteria.
+        """
+    # #Techniques used: f-strings containing expressions
     # #Member who worked on this method: Jhemel
-    # """
-    # Finds apartments that can accommodate a group of people with the given criteria.
+    # Assume we have a list of available apartments with their details
+        chosen_apartment_df =  self.apartments_df[ self.apartments_df['Apartment Name'] == self.chosen_apartment]
+        #print(chosen_apartment_df)
+        chosen_rooms_available_df = chosen_apartment_df[chosen_apartment_df['Number of Rooms Available']>= self.num_people ]
+        print("\nThese are the rooms available that can fit the number of tenants:")
+        print(chosen_rooms_available_df)
 
-    # Args:
-    # - num_people (int): The number of people who want to live together in the apartment.
-    # - location (str): The desired location for the apartment.
-    # - budget (float): The maximum amount the group is willing to spend per month.
-
-    # Returns:
-    # - A list of apartments that meet the given criteria.
-    # """
-    # # Assume we have a list of available apartments with their details
-    # available_apartments = [
-    #     {"location": "South Campus Commons", "bedrooms": 2, "price": 1128},
-    #     {"location": "University View", "bedrooms": 2, "price": 1400},
-    #     {"location": "Terrapin Row", "bedrooms": 2, "price": 1250},
-    #     {"location": "The Varsity", "bedrooms": 4, "price": 1400},
+        chosen_apartment_number = int(input("\nWhich of the apartment units listed best fit your needs?"
+        "\nPlease specify the Apartment Number of the unit shown under the Apartment Number column (e.g. 500):" ))
+        apartment_number_df = chosen_apartment_df[chosen_apartment_df['Apartment Number']== chosen_apartment_number]
         
-    # ]
-
-    # # Filter apartments that match the criteria
-    # matching_apartments = []
-    # for apartment in available_apartments:
-    #     if apartment["location"] == location and apartment["bedrooms"] >= num_bedrooms:
-
-    # #Filter apartments that match the criteria using list comprehension and conditional statement
-    # matching_apartments = [apartment for apartment in available_apartments if apartment["location"]] == location and apartment["bedrooms"] >= num_bedrooms and apartment["price"] / apartment["bedrooms"] <= budget / num_people
-
-    # return matching_apartments
+        #f-strings containing expressions
+        print(f"\n{self.user_name}, this is the apartment unit's information:")
+        print(apartment_number_df)
+        
+        #f-strings containing expressions
+        print(f"This is the monthly rent that each of the tenants have to pay (including you): ${budget}.")
 
     def userInput(self):
         #Member who worked on this method: Philip
@@ -344,18 +342,18 @@ class Apartment:
                                      f"based on your preferences:\n")
         if self.chosen_apartment == self.apartment1:
             self.chosen_apartment = self.apartment1
-            return self.chosen_apartment
+            #return self.chosen_apartment
         else:
             self.chosen_apartment = self.apartment2
-            return self.chosen_apartment
-        otherTenants = (input("\nf{self.user_name}, are you looking "
+            #return self.chosen_apartment
+        otherTenants = (input(f"\n{self.user_name}, are you looking "
                                     f"to move into {self.chosen_apartment} "
                                     f"with other tenants? (y/n)"))
         if otherTenants == "y":
-            self.num_people = (input("\nHow many tenants are moving in "
-                                     "with you? 1,2,3,or 4?"))
+            self.num_people = int(input("\nHow many tenants are moving in "
+                                     "with you (including yourself)? 1,2,3,or 4?"))
             self.chosen_apartment_budget = self.min_budget[self.chosen_apartment]
-            find_shared_group_apartment(self.num_people, self.chosen_apartment, self.chosen_apartment_budget)
+            self.find_shared_group_apartment(self.num_people, self.chosen_apartment, self.chosen_apartment_budget)
         else:
             print("That's it!")
          
