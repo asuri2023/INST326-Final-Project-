@@ -232,6 +232,11 @@ class Apartment:
     def submitApplication(self, some_apartment, some_name, some_email, some_Phone):
         #Member who worked on this method: Avi
         #Technique used: regular expressions
+        name=None
+        email=None
+        phone=None
+        
+        validated_dict = {name:some_name, email:some_email, phone:some_Phone}
         
         # validate user input with regular expressions
         name_regex = r'[A-Za-z]\S+ .+?[A-Za-z\d]+$'
@@ -248,12 +253,19 @@ class Apartment:
         
         if not re.match(phone_regex, some_Phone):
             print("Invalid phone number. Please enter a valid phone number in the format xxx-xxx-xxxx.")
-            
         
-        # if user input is valid, submit application
-        print(f"Thank you, {self.full_name}, for submitting your application to {some_apartment}. We will contact you soon.")
-        
+        for key in validated_dict:
+            if (not re.match(name_regex, str(validated_dict[key]))) and \
+            (not re.match(email_regex, str(validated_dict[key]))) and \
+            (not re.match(phone_regex, str(validated_dict[key]))):
+                return False
+        return True
 
+            # if key in validated_dict != name_regex & key in validated_dict != email_regex & key in validated_dict != phone_regex:
+            #     return False   
+            # else: 
+            #     return True
+        
     def userInput(self):
         #Member who worked on this method: Philip
         #Technique used:Visualizing data with seaborn 
@@ -402,10 +414,21 @@ class Apartment:
         self.email = input("Please enter your email address:")
         self.phone = input("Please enter your phone number (format: xxx-xxx-xxxx):")
 
-        self.submitApplication(self.chosen_apartment, self.full_name, self.email, self.phone)
+        applicationCall = self.submitApplication(self.chosen_apartment, self.full_name, self.email, self.phone)
          
-        
-        
+        while applicationCall == False:
+            # get user input
+            self.full_name = input("Please enter your full name:")
+            self.email = input("Please enter your email address:")
+            self.phone = input("Please enter your phone number (format: xxx-xxx-xxxx):")
+                    
+            if self.submitApplication(self.chosen_apartment, self.full_name, self.email, self.phone):
+                # if user input is valid, submit application
+                print(f"Thank you, {self.full_name}, for submitting your application to {self.chosen_apartment}. We will contact you soon.")
+                applicationCall = True
+            else:
+                print("Please enter valid information.")
+
         
     
 
