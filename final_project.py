@@ -415,19 +415,31 @@ class Apartment:
         self.phone = input("Please enter your phone number (format: xxx-xxx-xxxx):")
 
         applicationCall = self.submitApplication(self.chosen_apartment, self.full_name, self.email, self.phone)
+        thankyou_message = False
          
         while applicationCall == False:
             # get user input
             self.full_name = input("Please enter your full name:")
             self.email = input("Please enter your email address:")
             self.phone = input("Please enter your phone number (format: xxx-xxx-xxxx):")
+            
+        
                     
             if self.submitApplication(self.chosen_apartment, self.full_name, self.email, self.phone):
                 # if user input is valid, submit application
                 print(f"Thank you, {self.full_name}, for submitting your application to {self.chosen_apartment}. We will contact you soon.")
+                thankyou_message = True
                 applicationCall = True
             else:
                 print("Please enter valid information.")
+                
+        else:
+            if thankyou_message == False:
+                print(f"Thank you, {self.full_name}, for submitting your application to {self.chosen_apartment}. We will contact you soon.")
+            else:
+                exit
+                
+        
 
         
     
