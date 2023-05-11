@@ -269,9 +269,40 @@ class Apartment:
             
     def amenities_rsvp(self, some_apartment, some_amenity='Study Rooms'):
         #some_amenity='Study Rooms': B/c all the apartments have a study room that can reserved
-        some_apartment_amenity = self.amenities_df.loc[self.amenities_df ['Apartment Name'] == some_apartment, amenity].values[0]
-
+        some_apartment_amenity = self.amenities_df.loc[self.amenities_df ['Apartment Name'] == some_apartment, some_amenity].values[0]
         
+        if some_apartment == "University View":
+            rsvp_txt_file = "University View_RSVP.txt"
+        elif some_apartment == "The Varsity":
+            rsvp_txt_file = "The Varsity_RSVP.txt"
+        elif some_apartment == "South Campus Commons": 
+            rsvp_txt_file = "South Campus Commons__RSVP.txt"
+        else:
+            rsvp_txt_file = "Terrapin Row_RSVP.txt"
+        
+        with open(rsvp_txt_file, "r", encoding="utf-8") as f:
+            available = False  # Flag to track if the amenity is available
+            for line in f:
+                amenity_response = line.strip().split(":")[0].strip().lower()
+                if amenity_response == "AVAILABLE":
+                    available = True
+                    break  # Exit the loop if amenity is available
+
+            if available:
+                print("It's available!")
+            else:
+                print("You cannot reserve this amenity at this time.")
+                       
+        # with open(rsvp_txt_file, "r",encoding = "utf-8") as f:
+        #     available_timings=[]
+        #     for line in f:
+                    
+        #             print("It's available!")
+                    
+        #         else:
+        #             print("You cannot reserve this amenity at this time.")
+
+    
     def userInput(self):
         #Member who worked on this method: Philip
         #Technique used:Visualizing data with seaborn 
@@ -451,9 +482,9 @@ class Apartment:
                                      "since it is offered as an amenity at all College Park apartments. \nWhich amenity?: ")
         
         if self.reserve_amenity == " ":
-            self.amenities_rsvp(self, self.chosen_apartment)
+            self.amenities_rsvp(self.chosen_apartment)
         else:
-            self.amenities_rsvp(self, self.chosen_apartment, self.reserve_amenity)
+            self.amenities_rsvp(self.chosen_apartment, self.reserve_amenity)
                 
         
 

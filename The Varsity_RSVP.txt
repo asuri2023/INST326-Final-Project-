@@ -1,0 +1,7 @@
+The Varsity:
+
+Study Rooms:Room1(AVAILABLE,Monday-Friday,9:30am-12:30pm), Room2(UNAVAILABLE,Tuesday-Thursday,4:30pm-7:30pm), Room3(UNAVAILABLE,Monday-Friday,11:00pm-2:00am), Room4(AVAILABLE,Wednesday,7:00am-10:00am), Room5(AVAILABLE,Friday,10:00am-1:00pm)
+
+Pool:(AVAILABLE,Friday-Sunday, 12:00pm-8:00pm)
+
+Game Lounge:Lounge1(AVAILABLE,Monday-Thursday,7:30pm-9:30pm), Lounge2,(UNAVAILABLE,Thursday-Sunday,9:30pm-11:30pm), Lounge3(AVAILABLE,Monday-Thursday,9:30pm-11:30pm)
