@@ -265,6 +265,12 @@ class Apartment:
             #     return False   
             # else: 
             #     return True
+            
+            
+    def amenities_rsvp(self, some_apartment, some_amenity='Study Rooms'):
+        #some_amenity='Study Rooms': B/c all the apartments have a study room that can reserved
+        some_apartment_amenity = self.amenities_df.loc[self.amenities_df ['Apartment Name'] == some_apartment, amenity].values[0]
+
         
     def userInput(self):
         #Member who worked on this method: Philip
@@ -284,7 +290,7 @@ class Apartment:
         
         print(f"\nHi {self.user_name}! In order to proceed with the rest of "
               "the College Park Apartment Portal, \nwe have to check if you "
-              "meet all the eligibility requirements.")
+              "meet all the eligibility requirements.") 
         self.check_eligibility()
         
         
@@ -438,6 +444,16 @@ class Apartment:
                 print(f"Thank you, {self.full_name}, for submitting your application to {self.chosen_apartment}. We will contact you soon.")
             else:
                 exit
+                
+        print("Once you join our apartment you can make reservations for the amenities we offer. ")
+        self.reserve_amenity = input("Which of the following amenities would you like to reserve: Pool, Study Rooms, or Game Lounge?\n"
+                                     "Please use exact spelling. If you don't specify an amenity and type a space, Study Rooms will be chosen by default\n"
+                                     "since it is offered as an amenity at all College Park apartments. \nWhich amenity?: ")
+        
+        if self.reserve_amenity == " ":
+            self.amenities_rsvp(self, self.chosen_apartment)
+        else:
+            self.amenities_rsvp(self, self.chosen_apartment, self.reserve_amenity)
                 
         
 
