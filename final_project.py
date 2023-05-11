@@ -178,6 +178,10 @@ class Apartment:
                 print("Yes you are eligible")
             else:
                 print("not eligible")
+                
+        #Prof's advice: 
+        #  Make the method more generic 
+        #  return True if eligible or False if not eligible
             
         
         # Will be used in the future:
@@ -265,44 +269,12 @@ class Apartment:
             #     return False   
             # else: 
             #     return True
-            
-            
+                    
     def amenities_rsvp(self, some_apartment, some_amenity='Study Rooms'):
-        #some_amenity='Study Rooms': B/c all the apartments have a study room that can reserved
-        some_apartment_amenity = self.amenities_df.loc[self.amenities_df ['Apartment Name'] == some_apartment, some_amenity].values[0]
-        
-        if some_apartment == "University View":
-            rsvp_txt_file = "University View_RSVP.txt"
-        elif some_apartment == "The Varsity":
-            rsvp_txt_file = "The Varsity_RSVP.txt"
-        elif some_apartment == "South Campus Commons": 
-            rsvp_txt_file = "South Campus Commons__RSVP.txt"
-        else:
-            rsvp_txt_file = "Terrapin Row_RSVP.txt"
-        
-        with open(rsvp_txt_file, "r", encoding="utf-8") as f:
-            available = False  # Flag to track if the amenity is available
-            for line in f:
-                amenity_response = line.strip().split(":")[0].strip().lower()
-                if amenity_response == "AVAILABLE":
-                    available = True
-                    break  # Exit the loop if amenity is available
-
-            if available:
-                print("It's available!")
-            else:
-                print("You cannot reserve this amenity at this time.")
-                       
-        # with open(rsvp_txt_file, "r",encoding = "utf-8") as f:
-        #     available_timings=[]
-        #     for line in f:
-                    
-        #             print("It's available!")
-                    
-        #         else:
-        #             print("You cannot reserve this amenity at this time.")
-
-    
+        #Member who worked on this method: Shishir
+        #Technique used:optional parameters
+        print(f"For {some_apartment}, we've reserved this {some_amenity} for you. ")
+              
     def userInput(self):
         #Member who worked on this method: Philip
         #Technique used:Visualizing data with seaborn 
@@ -323,6 +295,13 @@ class Apartment:
               "the College Park Apartment Portal, \nwe have to check if you "
               "meet all the eligibility requirements.") 
         self.check_eligibility()
+        
+        #Prof's advice: Stops the questions for the ineligible user:
+        #if self.check_eligibility() == False:
+        #   return #Purpose of this return is to end function
+
+        #Mention eligilibility txt file upload requirements in documentation.
+        # At this point of the program, provide this file... (brief)
         
         
         #MAJOR CATEGORIES
