@@ -12,28 +12,37 @@ class Apartment:
         # Read the CSV files
         self.apartments_df = pd.read_csv(r"CP Apartments_Version3.csv")
         self.amenities_df = pd.read_csv(r"Amenitites_Version2.csv")
-        self.historical_df = pd.read_csv(r"Major Historical Data_Version3.csv")
+        self.historical_df = pd.read_csv(
+            r"Major Historical Data_Version3.csv")
         
         # Merging operation on Pandas DataFrames
         self.merged_data = self.apartments_df.merge(self.amenities_df, 
-                                                    on=["Apartment Name"])
+                                                on=["Apartment Name"])
         
             
         # Will be used in the future:
-            # Store the apartment names and minimum budgets in a dictionary
-            #self.min_budgets = dict(zip(self.merged_data["Apartment Name"], 
+            # Store the apartment names and minimum budgets in 
+            # a dictionary
+            #self.min_budgets = dict(zip(self.merged_data[
+            # "Apartment Name"], 
             # self.merged_data["Minimum Price"]))
             
-        self.terrapin_row, self.university_view, self.the_varsity, self.south_campus_commons = self.merged_data["Apartment Name"].unique()
+        self.terrapin_row, 
+        self.university_view, 
+        self.the_varsity, 
+        self.south_campus_commons = self.merged_data[
+            "Apartment Name"].unique()
         self.min_budget = {"Terrapin Row":1250, "University View":1200, 
-                           "The Varsity":1104, "South Campus Commons":1016} 
+                           "The Varsity":1104, 
+                           "South Campus Commons":1016} 
         
         
-        self.major_campus_dictionary=  {1: ["University View","The Varsity"],
-                                   2:["Terrapin Row","South Campus Commons"],
-                                   3: ["Terrapin Row","South Campus Commons"],
-                                   4:["University View","The Varsity"],
-                                   5:["Terrapin Row","South Campus Commons"]}
+        self.major_campus_dictionary=  {
+            1: ["University View","The Varsity"],
+            2:["Terrapin Row","South Campus Commons"],
+            3: ["Terrapin Row","South Campus Commons"],
+            4:["University View","The Varsity"],
+            5:["Terrapin Row","South Campus Commons"]}
         
              
        
@@ -135,7 +144,8 @@ class Apartment:
             
         
         if not re.match(phone_regex, some_Phone):
-            print("Invalid phone number. Please enter a valid phone number in the format xxx-xxx-xxxx.")
+            print("Invalid phone number. Please enter a valid phone number in "
+                  "the format xxx-xxx-xxxx.")
         
         for key in validated_dict:
             if (not re.match(name_regex, str(validated_dict[key]))) and \
@@ -144,10 +154,6 @@ class Apartment:
                 return False
         return True
 
-            # if key in validated_dict != name_regex & key in validated_dict != email_regex & key in validated_dict != phone_regex:
-            #     return False   
-            # else: 
-            #     return True
 
     def check_eligibility(self, some_name, proof_of_identity, proof_of_income):
         """
