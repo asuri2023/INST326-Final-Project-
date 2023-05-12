@@ -12,12 +12,10 @@ class Apartment:
         # Read the CSV files
         self.apartments_df = pd.read_csv(r"CP Apartments_Version3.csv")
         self.amenities_df = pd.read_csv(r"Amenitites_Version2.csv")
-        self.historical_df = pd.read_csv(
-            r"Major Historical Data_Version3.csv")
+        self.historical_df = pd.read_csv(r"Major Historical Data_Version3.csv")
         
         # Merging operation on Pandas DataFrames
-        self.merged_data = self.apartments_df.merge(self.amenities_df, 
-                                                on=["Apartment Name"])
+        self.merged_data = self.apartments_df.merge(self.amenities_df, on=["Apartment Name"])
         
             
         # Will be used in the future:
@@ -27,14 +25,9 @@ class Apartment:
             # "Apartment Name"], 
             # self.merged_data["Minimum Price"]))
             
-        self.terrapin_row, 
-        self.university_view, 
-        self.the_varsity, 
-        self.south_campus_commons = self.merged_data[
-            "Apartment Name"].unique()
+        self.terrapin_row,  self.university_view, self.the_varsity, self.south_campus_commons = self.merged_data["Apartment Name"].unique()
         self.min_budget = {"Terrapin Row":1250, "University View":1200, 
-                           "The Varsity":1104, 
-                           "South Campus Commons":1016} 
+                           "The Varsity":1104, "South Campus Commons":1016} 
         
         
         self.major_campus_dictionary=  {
@@ -144,8 +137,7 @@ class Apartment:
             
         
         if not re.match(phone_regex, some_Phone):
-            print("Invalid phone number. Please enter a valid phone number in "
-                  "the format xxx-xxx-xxxx.")
+            print("Invalid phone number. Please enter a valid phone number in the format xxx-xxx-xxxx.")
         
         for key in validated_dict:
             if (not re.match(name_regex, str(validated_dict[key]))) and \
@@ -429,8 +421,7 @@ class Apartment:
             
         
                     
-            if self.submitApplication(self.chosen_apartment, self.full_name, 
-                                      self.email, self.phone):
+            if self.submitApplication(self.chosen_apartment, self.full_name, self.email, self.phone):
                 # if user input is valid, submit application
                 print(f"Thank you, {self.full_name}, for submitting your " 
                       f"application to {self.chosen_apartment}. "
