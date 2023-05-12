@@ -66,6 +66,26 @@ class Apartment:
         self.email = None
         self.phone = None
         
+    def amenityCheck(self,apt1,apt2,amenity):
+        #Member who worked on this method: Philip
+        #Technique used: Filtering operation on Pandas DataFrames
+        apartment1_amenity = self.amenities_df.loc[
+            self.amenities_df ['Apartment Name'] == apt1, amenity
+        ].values[0]
+        apartment2_amenity = self.amenities_df.loc[
+            self.amenities_df ['Apartment Name'] == apt2, amenity
+        ].values[0]
+        
+        if apartment1_amenity == 1:
+            print(f"{apt1} has a {amenity}.")
+        else:
+            print(f"{apt1} does not have a {amenity}.")
+
+        if apartment2_amenity == 1:
+            print(f"{apt2} has a {amenity}.")
+        else:
+            print(f"{apt2} does not have a {amenity}.")  
+        
     def userBudget(self, someUserBudget, apt1, apt2):
         #Member who worked on this method: Shishir
         #Technique used: List comprehension
@@ -74,19 +94,23 @@ class Apartment:
         
         aptAndMinBudget=[apt1_minBudget,apt2_minBudget]
         cheapest_apt_value=min(aptAndMinBudget)
-        #list comprehension: used to reverse keys and values of a dict in order to display the name of the cheapest apt
+        #list comprehension: used to reverse keys and values of a dict in order 
+        # to display the name of the cheapest apt
         reversed_minBudget={value: key for key, value in self.min_budget.items()}
         name_of_cheapest_apt = reversed_minBudget[cheapest_apt_value]
         
         if someUserBudget >= apt1_minBudget and someUserBudget >=apt2_minBudget:
-            print(f"You can afford the minimum monthly rent at both {apt1} and {apt2}.")
-            print(f"The cheapest apartment on your side of campus is {name_of_cheapest_apt} (${cheapest_apt_value}).")
+            print(f"You can afford the minimum monthly rent at both {apt1} and "
+                  f"{apt2}.")
+            print(f"The cheapest apartment on your side of campus is "
+                  f"{name_of_cheapest_apt} (${cheapest_apt_value}).")
         elif someUserBudget >= apt1_minBudget:
             print(f"You can afford the monthly rent at {apt1} only.")
         elif someUserBudget >= apt2_minBudget:
             print(f"You can afford the monthly rent at {apt2} only.")
         else:
-            print(f"You cannot afford the minimum monthly rent at either apartments.")
+            print("You cannot afford the minimum monthly rent at either "
+                  "apartments.")
 
     def submitApplication(self, some_apartment, some_name, some_email, some_Phone):
         #Member who worked on this method: Avi
@@ -248,3 +272,229 @@ class Apartment:
         #Member who worked on this method: Shishir
         #Technique used:optional parameters
         print(f"For {some_apartment}, we've reserved this {some_amenity} for you. ")
+    
+    def userInput(self):
+        #Member who worked on this method: Philip
+        #Technique used:Visualizing data with seaborn 
+        
+        #INTRODUCTION
+        print("Welcome to the College Park Apartment Portal!\n \nThere are four "
+              "apartments for you to choose from in the College Park Area:"
+              "\n Terrapin Row, \n University View, " 
+              "\n The Varsity, and \n South Campus Commons.")
+        print("\nTerrapin Row and South Campus Commons are located in "
+              "South campus.")
+        print("\nUniversity View and The Varsity are located in North campus.")
+        print("\nAnswer some questions to find your ideal apartment!")
+
+        self.user_name = input("\nPlease enter your full name:")
+        
+        print(f"\nHi {self.user_name}! In order to proceed with the rest of "
+              "the College Park Apartment Portal, \nwe have to check if you "
+              "meet all the eligibility requirements.") 
+        self.proofOfIdentity = input("Do you have a Driver's License or a "
+                                     "Passport? (yes/no): ")
+        self.proofOfIncome = input("Do you have a Pay Stub or a Bank Statement? "
+                                   "(yes/no): ")
+
+        self.check_eligibility(self.user_name, self.proofOfIdentity,
+                               self.proofOfIncome)
+
+        while (self.proof_of_identity_boolean == False or 
+               self.proof_of_income_boolean == False):
+            self.proofOfIdentity = input("Do you have a Driver's License or a "
+                                         "Passport? (yes/no): ")
+            self.proofOfIncome = input("Do you have a Pay Stub or "
+                                       "a Bank Statement? (yes/no): ")
+            self.check_eligibility(self.user_name, self.proofOfIdentity,
+                                   self.proofOfIncome)
+            
+        #MAJOR CATEGORIES
+        self.major_category_input = int(input("\nWhich one of the following "
+                                     "categories would your major fall under?\n"
+          "Type 1 for STEM (Classes in North campus)\n"
+          "Type 2 for Business (Classes in South campus)\n"
+          "Type 3 for Public Policy (Classes in South campus)\n"
+          "Type 4 for Fine Arts (Classes in North campus)\n"
+          "Type 5 for Architecture (South campus)\n"))
+        
+        major_number_dictionary = {1:"STEM",2:"Business", 3:"Public Policy",
+                                     4:"Fine Arts",5:"Architecture"}
+        
+        
+        major_proximity_dictionary = {1:"University View and The Varsity "
+                                     "are located near STEM buildings",
+                                     2:"Terrapin Row and South Campus Commons "
+                                     "are located near Business buildings",
+                                     3:"Terrapin Row and South Campus Commons "
+                                     "are located near Public Policy buildings",
+                                     4:"University View and The Varsity "
+                                     "are located near Fine arts buildings",
+                                     5:"Terrapin Row and South Campus Commons "
+                                     "are located near Architecture buildings"}
+        print(major_proximity_dictionary[self.major_category_input])
+        
+        
+        print(f"\nLet's see what most "
+              f"{major_number_dictionary[self.major_category_input]} majors in "
+              f"previous years chose as their apartment.\n")
+        #Visualizing historical data with seaborn
+        
+        #Filter historical database by user's specific major.
+        df_major = self.historical_df[self.historical_df["Major"] 
+                        == (major_number_dictionary[self.major_category_input])]
+        sns.countplot(x = "Apartment", data = df_major)
+        plt.show()
+        
+        if self.major_category_input == 1 or self.major_category_input == 4:
+            print("\nBetween University View and The Varsity, let's see which "
+                  "apartment best fits your amenity needs.")
+        else: 
+            print("\nBetween Terrapin Row and South Campus Commons, let's pick one "
+                  "apartment that best fits your amenity needs.")   
+            
+        #The two apartments in the side of campus where the user's classes 
+        # for major are.
+        self.apartment1 = self.major_campus_dictionary[self.major_category_input][0]
+        self.apartment2 = self.major_campus_dictionary[self.major_category_input][1]
+         
+        #Amenities questions (make this its own method in the future)
+            #'Pool' question and check
+        user_pool=int(input("\nAre you looking for a pool? Type 0 for no pool or 1"  
+                        " for pool:"))
+        self.amenityCheck(self.apartment1,self.apartment2, 'Pool')
+        
+            #'Gym'question and check
+        user_gym=int(input("\nAre you looking for a gym? Type 0 for no gym or 1" 
+                        " for gym:"))
+        self.amenityCheck(self.apartment1,self.apartment2, 'Gym')
+        
+            #'Parking' question and check
+        user_parking=int(input("\nAre you looking for parking? Type 0 for no" 
+                            " parking and 1 for parking:" ))
+        self.amenityCheck(self.apartment1,self.apartment2, 'Parking')
+            
+            #'Electronic Key Locks' question and check
+        user_electronic_entry_locks=int(input("\nDo you want an apartment with an"
+                                        " electronic entry lock system? Type 0"
+                                        " for no system and 1 for a system:"  )) 
+        self.amenityCheck(self.apartment1,self.apartment2, 'Electronic Key Locks')
+        
+            #'Study Rooms' question and check
+        user_study_rooms=int(input("\nAre you looking for study rooms? Type 0 for"
+                               " no study rooms and 1 for study rooms:"))
+        self.amenityCheck(self.apartment1,self.apartment2, 'Study Rooms')
+            
+            #'Game Lounge' question and check
+        
+        user_game_lounge=int(input("\nAre you looking for game lounge? Type 0 for" 
+                                   " no game lounge and 1 for a game lounge:"))
+        self.amenityCheck(self.apartment1,self.apartment2, 'Game Lounge')
+    
+        # BUDGET QUESTIONS
+        self.user_input_budget = int(input("\nWhat is your minimum budget?")) 
+        self.userBudget(self.user_input_budget, self.apartment1, self.apartment2)
+
+        # APARTMENT SUMMARY (do this later)
+        # State the amenities available at apt1 and apt2.
+        # Restate the cheapest apt
+        
+        # PICK ONE APARTMENT
+        self.chosen_apartment = input(f"Between {self.apartment1} and " 
+                                     f"{self.apartment2}, \nplease write down "  
+                                     f"the apartment you prefer to stay in "
+                                     f"based on your preferences:\n")
+        if self.chosen_apartment == self.apartment1:
+            self.chosen_apartment = self.apartment1
+            #return self.chosen_apartment
+        else:
+            self.chosen_apartment = self.apartment2
+            #return self.chosen_apartment
+        otherTenants = (input(f"\n{self.user_name}, are you looking "
+                                    f"to move into {self.chosen_apartment} "
+                                    f"with other tenants? (y/n)"))
+        if otherTenants == "y":
+            self.num_people = int(input("\nHow many tenants are moving in "
+                                     "with you (including yourself)? 1,2,3,or 4?"))
+            self.chosen_apartment_budget = self.min_budget[self.chosen_apartment]
+            self.find_shared_group_apartment(self.num_people, 
+                                             self.chosen_apartment, 
+                                             self.chosen_apartment_budget)
+        else:
+            print("That's it!")
+            
+        # ENTER USER PROFILE DETAILS
+        # check if user is logged in
+        self.user_name=input("enter your username(must be within 9 characters): ")
+        
+        while len(self.user_name)>9:
+             self.user_name=input("enter your username(must be within 9 characters): ") 
+        else:
+            print(f"your username is {self.user_name}")        
+        
+        # get user input
+        self.full_name = input("Please enter your full name:")
+        self.email = input("Please enter your email address:")
+        self.phone = input("Please enter your phone number (format: xxx-xxx-xxxx):")
+
+        applicationCall = self.submitApplication(self.chosen_apartment, 
+                                                 self.full_name, 
+                                                 self.email, 
+                                                 self.phone)
+        thankyou_message = False
+         
+        while applicationCall == False:
+            # get user input
+            self.full_name = input("Please enter your full name:")
+            self.email = input("Please enter your email address:")
+            self.phone = input("Please enter your phone number "
+                               "(format: xxx-xxx-xxxx):")
+            
+        
+                    
+            if self.submitApplication(self.chosen_apartment, self.full_name, 
+                                      self.email, self.phone):
+                # if user input is valid, submit application
+                print(f"Thank you, {self.full_name}, for submitting your " 
+                      f"application to {self.chosen_apartment}. "
+                      "We will contact you soon.")
+                thankyou_message = True
+                applicationCall = True
+            else:
+                print("Please enter valid information.")
+                
+        else:
+            if thankyou_message == False:
+                print(f"Thank you, {self.full_name}, for submitting your "
+                      f"application to {self.chosen_apartment}. "
+                      "We will contact you soon.")
+            else:
+                exit
+                
+        print("Once you join our apartment you can make reservations for "
+              "the amenities we offer. ")
+        self.reserve_amenity = input("Which of the following amenities would "
+                                     "you like to reserve: Pool, Study Rooms, "
+                                     "or Game Lounge?\n"
+                                     "Please use exact spelling. If you don't "
+                                     "specify an amenity and type a space, "
+                                     "Study Rooms will be chosen by default\n"
+                                     "since it is offered as an amenity at all "
+                                     "College Park apartments. "
+                                     "\nWhich amenity?: ")
+        
+        if self.reserve_amenity == " ":
+            self.amenities_rsvp(self.chosen_apartment)
+        else:
+            self.amenities_rsvp(self.chosen_apartment, self.reserve_amenity)
+                
+
+def main():
+    apt = Apartment()
+    
+    apt.userInput()
+    
+    
+if __name__=='__main__':
+    main()
+    
