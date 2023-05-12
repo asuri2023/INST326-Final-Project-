@@ -39,6 +39,10 @@ class Apartment:
        
         # Initialize user attributes to None
         self.user_name = None
+        self.proofOfIdentity = None
+        self.proofOfIncome = None
+        self.proof_of_identity_boolean = False
+        self.proof_of_income_boolean = False
         self.user_budget = None
         self.user_location = None
         self.user_pool = None
@@ -129,8 +133,8 @@ class Apartment:
         # Will be used in the future:
             #return cheapest_apt
             #Or find a way to use cheapest_apt later in this program.   
-    
-    def check_eligibility(self):
+          
+    def check_eligibility(self, some_name, proof_of_identity, proof_of_income):
         """
         Check if user meets all the proper documentation for leasing.
 
@@ -149,35 +153,50 @@ class Apartment:
             False otherwise
         """
         #Member who worked on this method: Jhemel
-        #Technique used: with statement
+        #Technique used: Conditional Expression
         
-        if self.user_name == "Bob Johnson":
-            yes_count_Bob = 0
-               
-            with open("Bob_eligibility.txt", "r",encoding = "utf-8") as f:
-                for line in f:
-                    response = line.strip().split(":")[-1].strip().lower()
-                    if response == "yes":  
-                        yes_count_Bob += 1
+        
+        
 
-            if yes_count_Bob >= 2:
-                print("Yes you are eligible")
-            else:
-                print("not eligible")
-                    
+        
+        if proof_of_identity == "yes" and proof_of_income == "yes":
+            print(f"{some_name}, you are eligible to lease an apartment in College Park.")
+            self.proof_of_identity_boolean = True
+            self.proof_of_income_boolean = True
+
+        elif proof_of_identity == "yes" and proof_of_income == "no":
+            print(f"{some_name}, you are not eligible to lease an apartment in College Park." 
+            "\nPlease provide proof of income to proceed further.")
+            self.proof_of_identity_boolean = True
+            self.proof_of_income_boolean = False
+        elif proof_of_identity == "no" and proof_of_income == "yes":
+            print(f"{some_name}, you are not eligible to lease an apartment in College Park." 
+            "\nPlease provide proof of identity to proceed further.")
+            self.proof_of_identity_boolean = False
+            self.proof_of_income_boolean = True
         else:
-            yes_count_Mary = 0  
-            
-            with open("Mary_eligibility.txt", "r",encoding = "utf-8") as f:
-                for line in f:
-                    response = line.strip().split(":")[-1].strip().lower()
-                    if response == "yes":  
-                        yes_count_Mary += 1
+            return(f"{some_name}, you are not eligible to lease an apartment in College Park.")
+        
+        result = "Identity and income verified." if proof_of_identity == True and proof_of_income == True else "Identity and/or income not verified"
+        print(result)
 
-            if yes_count_Mary >= 2:
-                print("Yes you are eligible")
-            else:
-                print("not eligible")
+        # Will be used in the future:
+            # Check if the user meets the minimum income requirement
+            #min_income_requirement = 30000  # set a minimum income requirement of $30,000
+            #if income_proof < min_income_requirement:
+                
+                #print("Your income does not meet the minimum requirement.")
+                #return False
+            
+            # Check if the residency proof is current
+            # You could implement this check by comparing the date on the residency_proof to today's date
+            
+            # Check if the insurance proof is valid
+            # You could implement this check by verifying that the insurance policy is currently active
+            
+            # If all checks pass, the user is eligible
+            #print("Congratulations, you are eligible to lease!")
+            #return True    
                 
         #Prof's advice: 
         #  Make the method more generic 
@@ -294,7 +313,16 @@ class Apartment:
         print(f"\nHi {self.user_name}! In order to proceed with the rest of "
               "the College Park Apartment Portal, \nwe have to check if you "
               "meet all the eligibility requirements.") 
-        self.check_eligibility()
+        self.proofOfIdentity = input("Do you have a Driver's License or a Passport? (yes/no): ")
+        self.proofOfIncome = input("Do you have a Pay Stub or a Bank Statement? (yes/no): ")
+
+        self.check_eligibility(self.user_name, self.proofOfIdentity,self.proofOfIncome)
+
+        while self.proof_of_identity_boolean == False or self.proof_of_income_boolean == False:
+            self.proofOfIdentity = input("Do you have a Driver's License or a Passport? (yes/no): ")
+            self.proofOfIncome = input("Do you have a Pay Stub or a Bank Statement? (yes/no): ")
+            self.check_eligibility(self.user_name, self.proofOfIdentity,self.proofOfIncome)
+            
         
         #Prof's advice: Stops the questions for the ineligible user:
         #if self.check_eligibility() == False:
