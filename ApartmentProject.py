@@ -65,6 +65,28 @@ class Apartment:
         self.full_name = None
         self.email = None
         self.phone = None
+        
+    def userBudget(self, someUserBudget, apt1, apt2):
+        #Member who worked on this method: Shishir
+        #Technique used: List comprehension
+        apt1_minBudget=self.min_budget[apt1]
+        apt2_minBudget=self.min_budget[apt2]
+        
+        aptAndMinBudget=[apt1_minBudget,apt2_minBudget]
+        cheapest_apt_value=min(aptAndMinBudget)
+        #list comprehension: used to reverse keys and values of a dict in order to display the name of the cheapest apt
+        reversed_minBudget={value: key for key, value in self.min_budget.items()}
+        name_of_cheapest_apt = reversed_minBudget[cheapest_apt_value]
+        
+        if someUserBudget >= apt1_minBudget and someUserBudget >=apt2_minBudget:
+            print(f"You can afford the minimum monthly rent at both {apt1} and {apt2}.")
+            print(f"The cheapest apartment on your side of campus is {name_of_cheapest_apt} (${cheapest_apt_value}).")
+        elif someUserBudget >= apt1_minBudget:
+            print(f"You can afford the monthly rent at {apt1} only.")
+        elif someUserBudget >= apt2_minBudget:
+            print(f"You can afford the monthly rent at {apt2} only.")
+        else:
+            print(f"You cannot afford the minimum monthly rent at either apartments.")
 
     def submitApplication(self, some_apartment, some_name, some_email, some_Phone):
         #Member who worked on this method: Avi
@@ -220,3 +242,9 @@ class Apartment:
         
         #f-strings containing expressions
         print(f"This is the monthly rent that each of the tenants have to pay (including you): ${budget}.")
+        
+        
+    def amenities_rsvp(self, some_apartment, some_amenity='Study Rooms'):
+        #Member who worked on this method: Shishir
+        #Technique used:optional parameters
+        print(f"For {some_apartment}, we've reserved this {some_amenity} for you. ")

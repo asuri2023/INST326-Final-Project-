@@ -1,3 +1,4 @@
+import re
 import pandas as pd
 import seaborn as sns
 from matplotlib import pyplot as plt
@@ -59,6 +60,11 @@ class Apartment:
         self.chosen_apartment=None
         self.num_people=None
         self.chosen_apartment_budget=None
+        
+        # User's profile attributes
+        self.full_name = None
+        self.email = None
+        self.phone = None
         
 
     def amenityCheck(self,apt1,apt2,amenity):
@@ -245,7 +251,49 @@ class Apartment:
         
         #f-strings containing expressions
         print(f"This is the monthly rent that each of the tenants have to pay (including you): ${budget}.")
+    
+    def submitApplication(self, some_apartment, some_name, some_email, some_Phone):
+        #Member who worked on this method: Avi
+        #Technique used: regular expressions
+        name=None
+        email=None
+        phone=None
+        
+        validated_dict = {name:some_name, email:some_email, phone:some_Phone}
+        
+        # validate user input with regular expressions
+        name_regex = r'[A-Za-z]\S+ .+?[A-Za-z\d]+$'
+        email_regex = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+        phone_regex = r'^\d{3}-\d{3}-\d{4}$'
+        
+        if not re.match(name_regex, some_name):
+            print("Invalid name. Please enter a valid name.")
+            
+        
+        if not re.match(email_regex, some_email):
+            print("Invalid email. Please enter a valid email address.")
+            
+        
+        if not re.match(phone_regex, some_Phone):
+            print("Invalid phone number. Please enter a valid phone number in the format xxx-xxx-xxxx.")
+        
+        for key in validated_dict:
+            if (not re.match(name_regex, str(validated_dict[key]))) and \
+            (not re.match(email_regex, str(validated_dict[key]))) and \
+            (not re.match(phone_regex, str(validated_dict[key]))):
+                return False
+        return True
 
+            # if key in validated_dict != name_regex & key in validated_dict != email_regex & key in validated_dict != phone_regex:
+            #     return False   
+            # else: 
+            #     return True
+                    
+    def amenities_rsvp(self, some_apartment, some_amenity='Study Rooms'):
+        #Member who worked on this method: Shishir
+        #Technique used:optional parameters
+        print(f"For {some_apartment}, we've reserved this {some_amenity} for you. ")
+              
     def userInput(self):
         #Member who worked on this method: Philip
         #Technique used:Visualizing data with seaborn 
@@ -280,10 +328,8 @@ class Apartment:
         #if self.check_eligibility() == False:
         #   return #Purpose of this return is to end function
 
-        self.check_eligibility(self.user_name, self.proofOfIdentity,self.proofOfIncome)
-
-        while proof_of_income == False:
-            
+        #Mention eligilibility txt file upload requirements in documentation.
+        # At this point of the program, provide this file... (brief)
         
         
         #MAJOR CATEGORIES
@@ -397,9 +443,58 @@ class Apartment:
             self.find_shared_group_apartment(self.num_people, self.chosen_apartment, self.chosen_apartment_budget)
         else:
             print("That's it!")
+            
+        # ENTER USER PROFILE DETAILS
+        # check if user is logged in
+        self.user_name=input("enter your username(must be within 9 characters): ")
+        
+        while len(self.user_name)>9:
+             self.user_name=input("enter your username(must be within 9 characters): ") 
+        else:
+            print(f"your username is {self.user_name}")        
+        
+        # get user input
+        self.full_name = input("Please enter your full name:")
+        self.email = input("Please enter your email address:")
+        self.phone = input("Please enter your phone number (format: xxx-xxx-xxxx):")
+
+        applicationCall = self.submitApplication(self.chosen_apartment, self.full_name, self.email, self.phone)
+        thankyou_message = False
          
+        while applicationCall == False:
+            # get user input
+            self.full_name = input("Please enter your full name:")
+            self.email = input("Please enter your email address:")
+            self.phone = input("Please enter your phone number (format: xxx-xxx-xxxx):")
+            
         
+                    
+            if self.submitApplication(self.chosen_apartment, self.full_name, self.email, self.phone):
+                # if user input is valid, submit application
+                print(f"Thank you, {self.full_name}, for submitting your application to {self.chosen_apartment}. We will contact you soon.")
+                thankyou_message = True
+                applicationCall = True
+            else:
+                print("Please enter valid information.")
+                
+        else:
+            if thankyou_message == False:
+                print(f"Thank you, {self.full_name}, for submitting your application to {self.chosen_apartment}. We will contact you soon.")
+            else:
+                exit
+                
+        print("Once you join our apartment you can make reservations for the amenities we offer. ")
+        self.reserve_amenity = input("Which of the following amenities would you like to reserve: Pool, Study Rooms, or Game Lounge?\n"
+                                     "Please use exact spelling. If you don't specify an amenity and type a space, Study Rooms will be chosen by default\n"
+                                     "since it is offered as an amenity at all College Park apartments. \nWhich amenity?: ")
         
+        if self.reserve_amenity == " ":
+            self.amenities_rsvp(self.chosen_apartment)
+        else:
+            self.amenities_rsvp(self.chosen_apartment, self.reserve_amenity)
+                
+        
+
         
     
 
